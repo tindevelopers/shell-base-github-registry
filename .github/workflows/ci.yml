@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+# Runs the same comparison as register.yml, without committing anything, so
+# a PR that changes the script or the allowlist is verified before it lands.
+# Uses whatever registry/GitHub access the runner already has; if
+# NODE_AUTH_TOKEN isn't set for pull_request events on this repo, this job
+# fails with a clear "registry unreadable" message (never silently passes)
+# — see README.md "Known gap: NODE_AUTH_TOKEN".
+jobs:
+  dry-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.6.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          registry-url: 'https://npm.pkg.github.com'
+      - run: pnpm install --no-frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+      - run: node scripts/generate-register.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+      - run: git diff --stat -- REGISTER.md || true

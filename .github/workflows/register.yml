@@ -1,0 +1,87 @@
+name: Register
+
+on:
+  schedule:
+    # Daily. Cron is UTC; 07:00 UTC is a quiet hour for every hub's own CI.
+    - cron: '0 7 * * *'
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - 'hubs.json'
+      - 'known-divergences.json'
+      - '.github/workflows/register.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  register:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.6.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          registry-url: 'https://npm.pkg.github.com'
+
+      # Konnect's own pin-consistency signal (best-effort, T12 background):
+      # check-hub-package-pins.mjs lives in konnect-caas-base and checks that
+      # repo's OWN internal pin agreement, not the registry — see
+      # generate-register.mjs step 5 and README.md "Konnect signal". This
+      # needs read access to a repo other than this one, which the default
+      # GITHUB_TOKEN cannot reach — HUB_REGISTRY_ORG_READ_TOKEN is a
+      # classic/fine-grained PAT with read access to konnect-caas-base. If
+      # that secret is unset this step is skipped (not failed) and the
+      # register notes the gap instead of pretending to have the signal.
+      - name: Fetch Konnect pin-check signal (best-effort)
+        if: ${{ secrets.HUB_REGISTRY_ORG_READ_TOKEN != '' }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.HUB_REGISTRY_ORG_READ_TOKEN }}
+        run: |
+          git clone --depth 1 "https://x-access-token:${GH_TOKEN}@github.com/tindevelopers/konnect-caas-base.git" /tmp/konnect-caas-base
+          cd /tmp/konnect-caas-base
+          node scripts/check-hub-package-pins.mjs > "$GITHUB_WORKSPACE/konnect-pin-check.txt" 2>&1 || true
+
+      - name: Install
+        run: pnpm install --no-frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+
+      # The core comparison. Fails the job on an unexplained backward
+      # divergence (registry latest ahead of a package's default branch) —
+      # see scripts/generate-register.mjs for the full classification.
+      - name: Generate register
+        id: generate
+        run: node scripts/generate-register.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+
+      # Commit REGISTER.md straight to main — this repo holds no source code
+      # to review, only a generated report, so a daily PR-per-run would be
+      # pure noise. A real reviewable diff still happens for any change to
+      # the script or the allowlist, via the push-triggered run above and
+      # ordinary PRs against those files (see README.md "How this runs").
+      # Runs even when the comparison above found (and failed on) an
+      # unexplained divergence, so the committed REGISTER.md always reflects
+      # what this run actually found — never only the runs that passed.
+      - name: Commit updated REGISTER.md
+        if: always() && steps.generate.outcome != 'skipped'
+        run: |
+          rm -f konnect-pin-check.txt
+          if git diff --quiet -- REGISTER.md; then
+            echo "REGISTER.md unchanged."
+            exit 0
+          fi
+          git config user.name "hub-registry-bot"
+          git config user.email "hub-registry-bot@users.noreply.github.com"
+          git add REGISTER.md
+          git commit -m "chore: update REGISTER.md ($(date -u +%Y-%m-%d))"
+          git push

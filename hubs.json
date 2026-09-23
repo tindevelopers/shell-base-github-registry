@@ -1,0 +1,14 @@
+{
+  "description": "Every hub repo this register scans for @tindevelopers/* packages under packages/*/package.json. This is the discovery seed — the script still lists packages/ dynamically per repo via the GitHub API rather than hardcoding package names, so a package added to a hub later is picked up with no edit here. Discovered 2026-09-23 via `search_repositories org:tindevelopers` plus `search_code org:tindevelopers \"@tindevelopers/\" filename:package.json path:packages` across the whole org (186 repos). Three other repos matched that code search — chassis, notarized-platform-v1, great-western-bed-and-breakfast — but are not part of the shell-base-admin hub-and-spoke program (not listed in docs/plans/2026-09-22-shared-hubs-baseline.md's repo list) and this session has no read access to them; see README.md 'Known gaps'.",
+  "repos": [
+    { "owner": "tindevelopers", "repo": "shell-base-admin" },
+    { "owner": "tindevelopers", "repo": "shared-integration-hub" },
+    { "owner": "tindevelopers", "repo": "shared-api-hub" },
+    { "owner": "tindevelopers", "repo": "shell-base-crm" },
+    { "owner": "tindevelopers", "repo": "shell-base-cxp" },
+    { "owner": "tindevelopers", "repo": "shell-base-knowledge" },
+    { "owner": "tindevelopers", "repo": "shell-base-boss" },
+    { "owner": "tindevelopers", "repo": "shell-base-meetings" },
+    { "owner": "tindevelopers", "repo": "shell-base-agents" }
+  ]
+}
