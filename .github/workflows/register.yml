@@ -40,11 +40,14 @@ jobs:
       # that secret is unset this step is skipped (not failed) and the
       # register notes the gap instead of pretending to have the signal.
       - name: Fetch Konnect pin-check signal (best-effort)
-        if: ${{ secrets.HUB_REGISTRY_ORG_READ_TOKEN != '' }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.HUB_REGISTRY_ORG_READ_TOKEN }}
         run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "HUB_REGISTRY_ORG_READ_TOKEN not set — skipping (see README.md 'Konnect signal')."
+            exit 0
+          fi
           git clone --depth 1 "https://x-access-token:${GH_TOKEN}@github.com/tindevelopers/konnect-caas-base.git" /tmp/konnect-caas-base
           cd /tmp/konnect-caas-base
           node scripts/check-hub-package-pins.mjs > "$GITHUB_WORKSPACE/konnect-pin-check.txt" 2>&1 || true
