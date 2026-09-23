@@ -87,26 +87,49 @@ so its output is included in `REGISTER.md` as a separate, informational
 section and never affects this repo's CI outcome.
 
 **Known gap:** running that script needs a checkout of `konnect-caas-base`,
-which needs a token with read access to a repo other than this one — the
-default per-repo `GITHUB_TOKEN` can't reach it. `register.yml` looks for a
-secret named `HUB_REGISTRY_ORG_READ_TOKEN` (a classic or fine-grained PAT
-with read access to `tindevelopers/konnect-caas-base`) and skips that step
-entirely if it isn't set, rather than failing the whole run over an
-informational extra. As of this writing that secret has not been configured,
-so `REGISTER.md`'s Konnect section reports the gap instead of real output —
-same shape of gap T8/T10 hit for `NODE_AUTH_TOKEN`, flagged here rather than
-worked around.
+which needs a token with read access to a repo other than this one — see
+"Known gap: `HUB_REGISTRY_GH_TOKEN`" below; the same secret covers this.
+Until it's set, `register.yml` skips this step entirely (rather than failing
+the whole run over an informational extra) and `REGISTER.md`'s Konnect
+section reports the gap instead of real output.
+
+## Known gap: `HUB_REGISTRY_GH_TOKEN` (confirmed, blocking)
+
+**This is not hypothetical — it was hit on the first real CI run.** Both
+workflows need to read `packages/*/package.json` from eight repos other than
+this one (`hubs.json`) plus, optionally, `konnect-caas-base`. The
+automatically-issued `secrets.GITHUB_TOKEN` GitHub gives every workflow run
+is scoped to only the repo the workflow runs in, so it cannot do this.
+Confirmed by [run #3](https://github.com/tindevelopers/shell-base-github-registry/actions/runs/35930411784),
+triggered manually via `workflow_dispatch` right after this repo was
+scaffolded, which failed at the discovery step with:
+
+```
+generate-register: could not list packages/ in tindevelopers/shell-base-admin: GitHub API /repos/tindevelopers/shell-base-admin/contents/packages: Not Found
+```
+
+Fix: add a repository secret named `HUB_REGISTRY_GH_TOKEN` — a classic or
+fine-grained PAT with read access to `shell-base-admin`,
+`shared-integration-hub`, `shared-api-hub`, `shell-base-crm`,
+`shell-base-cxp`, `shell-base-knowledge`, `shell-base-boss`,
+`shell-base-meetings`, `shell-base-agents`, and (for the Konnect signal)
+`konnect-caas-base` (Settings → Secrets and variables → Actions). Both
+workflows fall back to `secrets.GITHUB_TOKEN` if this isn't set, which will
+keep failing the same way until the PAT is added.
 
 ## Known gap: `NODE_AUTH_TOKEN`
 
-Both workflows need a `NODE_AUTH_TOKEN`-equivalent repository secret — a
-token with read access to `https://npm.pkg.github.com` — to run `pnpm
-install` and to query the registry. This is the same gap this program hit at
-T8 and T10: if this repo does not yet have that secret configured, every run
-of `register.yml` and `ci.yml` fails at the install/query step with something
-like `ERR_PNPM_FETCH_401`, not because of a real registry divergence. Add a
-secret named `NODE_AUTH_TOKEN` (Settings → Secrets and variables → Actions)
-before relying on the scheduled run.
+Both workflows also need a `NODE_AUTH_TOKEN`-equivalent repository secret —
+a token with read access to `https://npm.pkg.github.com` — to run `pnpm
+install` and to query the registry. This is the same shape of gap this
+program hit at T8 and T10: without it, `pnpm install` and the registry query
+in `generate-register.mjs` fail with something like `ERR_PNPM_FETCH_401` or
+an npm 401, not because of a real registry divergence. The first CI run
+above didn't reach this step (it failed at discovery first, for want of
+`HUB_REGISTRY_GH_TOKEN`), so this gap is inferred from the same absent-secret
+pattern, not yet independently confirmed by its own CI failure — add
+`NODE_AUTH_TOKEN` alongside `HUB_REGISTRY_GH_TOKEN` before relying on the
+scheduled run.
 
 ## Scope
 

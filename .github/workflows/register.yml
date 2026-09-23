@@ -30,22 +30,25 @@ jobs:
           node-version: '24'
           registry-url: 'https://npm.pkg.github.com'
 
-      # Konnect's own pin-consistency signal (best-effort, T12 background):
-      # check-hub-package-pins.mjs lives in konnect-caas-base and checks that
-      # repo's OWN internal pin agreement, not the registry — see
-      # generate-register.mjs step 5 and README.md "Konnect signal". This
-      # needs read access to a repo other than this one, which the default
-      # GITHUB_TOKEN cannot reach — HUB_REGISTRY_ORG_READ_TOKEN is a
-      # classic/fine-grained PAT with read access to konnect-caas-base. If
-      # that secret is unset this step is skipped (not failed) and the
-      # register notes the gap instead of pretending to have the signal.
+      # Cross-repo discovery (step below) and the Konnect signal (this step)
+      # both need read access to repos OTHER than this one. The default,
+      # automatically-issued `secrets.GITHUB_TOKEN` is scoped to only the
+      # repo the workflow runs in and cannot read them — confirmed by run
+      # https://github.com/tindevelopers/shell-base-github-registry/actions/runs/35930411784,
+      # which failed with "GitHub API /repos/tindevelopers/shell-base-admin/
+      # contents/packages: Not Found" using that default token. HUB_REGISTRY_
+      # GH_TOKEN is a classic or fine-grained PAT with read access to every
+      # repo in hubs.json plus konnect-caas-base. Until it's added (Settings
+      # → Secrets and variables → Actions), the Konnect step below is
+      # skipped (not failed) and the "Generate register" step fails at
+      # discovery — see README.md "Known gap: HUB_REGISTRY_GH_TOKEN".
       - name: Fetch Konnect pin-check signal (best-effort)
         continue-on-error: true
         env:
-          GH_TOKEN: ${{ secrets.HUB_REGISTRY_ORG_READ_TOKEN }}
+          GH_TOKEN: ${{ secrets.HUB_REGISTRY_GH_TOKEN }}
         run: |
           if [ -z "$GH_TOKEN" ]; then
-            echo "HUB_REGISTRY_ORG_READ_TOKEN not set — skipping (see README.md 'Konnect signal')."
+            echo "HUB_REGISTRY_GH_TOKEN not set — skipping (see README.md 'Konnect signal')."
             exit 0
           fi
           git clone --depth 1 "https://x-access-token:${GH_TOKEN}@github.com/tindevelopers/konnect-caas-base.git" /tmp/konnect-caas-base
@@ -64,7 +67,7 @@ jobs:
         id: generate
         run: node scripts/generate-register.mjs
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.HUB_REGISTRY_GH_TOKEN || secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
       # Commit REGISTER.md straight to main — this repo holds no source code

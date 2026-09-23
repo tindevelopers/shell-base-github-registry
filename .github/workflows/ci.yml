@@ -6,10 +6,10 @@ on:
 
 # Runs the same comparison as register.yml, without committing anything, so
 # a PR that changes the script or the allowlist is verified before it lands.
-# Uses whatever registry/GitHub access the runner already has; if
-# NODE_AUTH_TOKEN isn't set for pull_request events on this repo, this job
-# fails with a clear "registry unreadable" message (never silently passes)
-# — see README.md "Known gap: NODE_AUTH_TOKEN".
+# Needs both HUB_REGISTRY_GH_TOKEN (cross-repo GitHub read) and
+# NODE_AUTH_TOKEN (registry read) as repo secrets — if either is unset this
+# job fails with a clear message (never silently passes), same as
+# register.yml. See README.md "Known gaps".
 jobs:
   dry-run:
     runs-on: ubuntu-latest
@@ -27,6 +27,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
       - run: node scripts/generate-register.mjs
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.HUB_REGISTRY_GH_TOKEN || secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
       - run: git diff --stat -- REGISTER.md || true
