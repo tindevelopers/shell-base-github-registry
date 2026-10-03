@@ -1,0 +1,7 @@
+{
+  "description": "Which hub owns a package that is published from more than one hub. Used by scripts/generate-graph.mjs to pick the canonical copy; the other copy is reported as stale. Remove an entry once the duplicate is gone.",
+  "owners": {
+    "@tindevelopers/domain-identity": "shared-identity-hub",
+    "@tindevelopers/schema-identity": "shared-identity-hub"
+  }
+}

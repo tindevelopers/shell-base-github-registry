@@ -2,14 +2,16 @@
   "name": "hub-registry-tooling",
   "version": "0.1.0",
   "private": true,
-  "description": "Cross-hub @tindevelopers/* registry-truth report (T12, Shared Hubs Baseline). See REGISTER.md.",
+  "description": "Cross-hub @tindevelopers/* registry-truth report (T12, Shared Hubs Baseline) and dependency graph. See REGISTER.md and GRAPH.md.",
   "packageManager": "pnpm@10.6.1",
   "engines": {
     "node": "24.x"
   },
   "type": "module",
   "scripts": {
-    "register": "node scripts/generate-register.mjs"
+    "register": "node scripts/generate-register.mjs",
+    "graph": "node scripts/generate-graph.mjs",
+    "test": "node --test tests/graph.test.mjs"
   },
   "devDependencies": {
     "@types/node": "^22.10.5"
