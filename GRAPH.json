@@ -1,0 +1,1976 @@
+{
+  "generated": "2026-10-03",
+  "hubs": [
+    {
+      "hub": "chassis",
+      "packages": [
+        "@tindevelopers/brands",
+        "@tindevelopers/design-tokens",
+        "@tindevelopers/ui-consumer"
+      ]
+    },
+    {
+      "hub": "shared-api-hub",
+      "packages": [
+        "@tindevelopers/api-credentials",
+        "@tindevelopers/api-mcp"
+      ]
+    },
+    {
+      "hub": "shared-client-care-hub",
+      "packages": [
+        "@tindevelopers/domain-campaigns",
+        "@tindevelopers/domain-contacts",
+        "@tindevelopers/domain-pipeline",
+        "@tindevelopers/domain-support",
+        "@tindevelopers/schema-crm",
+        "@tindevelopers/schema-support",
+        "@tindevelopers/ui-crm"
+      ]
+    },
+    {
+      "hub": "shared-identity-hub",
+      "packages": [
+        "@tindevelopers/domain-identity",
+        "@tindevelopers/schema-identity"
+      ]
+    },
+    {
+      "hub": "shared-integration-hub",
+      "packages": [
+        "@tindevelopers/adapter-kit",
+        "@tindevelopers/adapter-pennylane",
+        "@tindevelopers/adapter-quickbooks",
+        "@tindevelopers/adapter-shopify",
+        "@tindevelopers/adapter-stripe",
+        "@tindevelopers/adapter-woocommerce",
+        "@tindevelopers/adapter-xero",
+        "@tindevelopers/credential-crypto"
+      ]
+    },
+    {
+      "hub": "shell-base-admin",
+      "packages": [
+        "@tindevelopers/core-kernel",
+        "@tindevelopers/domain-billing",
+        "@tindevelopers/domain-chatbot",
+        "@tindevelopers/domain-control-plane",
+        "@tindevelopers/domain-control-plane-client",
+        "@tindevelopers/domain-email",
+        "@tindevelopers/domain-identity@shell-base-admin",
+        "@tindevelopers/platform",
+        "@tindevelopers/schema-identity@shell-base-admin",
+        "@tindevelopers/ui-shell"
+      ]
+    },
+    {
+      "hub": "shell-base-agents",
+      "packages": [
+        "@tindevelopers/agents"
+      ]
+    },
+    {
+      "hub": "shell-base-boss",
+      "packages": [
+        "@tindevelopers/boss"
+      ]
+    },
+    {
+      "hub": "shell-base-cxp",
+      "packages": [
+        "@tindevelopers/comms",
+        "@tindevelopers/domain-translation"
+      ]
+    },
+    {
+      "hub": "shell-base-finance",
+      "packages": [
+        "@tindevelopers/domain-finance",
+        "@tindevelopers/domain-platform-billing",
+        "@tindevelopers/schema-finance"
+      ]
+    },
+    {
+      "hub": "shell-base-knowledge",
+      "packages": [
+        "@tindevelopers/knowledge"
+      ]
+    },
+    {
+      "hub": "shell-base-meetings",
+      "packages": [
+        "@tindevelopers/meetings"
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "id": "@tindevelopers/brands",
+      "name": "@tindevelopers/brands",
+      "hub": "chassis",
+      "dir": "brands",
+      "version": "0.2.0",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 1,
+      "links": [
+        {
+          "name": "@tindevelopers/design-tokens",
+          "range": "workspace:^",
+          "section": "dep"
+        }
+      ],
+      "external": {
+        "dependencies": [],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/design-tokens",
+      "name": "@tindevelopers/design-tokens",
+      "hub": "chassis",
+      "dir": "design-tokens",
+      "version": "0.1.0",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 2,
+      "links": [],
+      "external": {
+        "dependencies": [],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/ui-consumer",
+      "name": "@tindevelopers/ui-consumer",
+      "hub": "chassis",
+      "dir": "ui-consumer",
+      "version": "0.2.0",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 1,
+      "links": [
+        {
+          "name": "@tindevelopers/brands",
+          "range": "workspace:^",
+          "section": "dep"
+        },
+        {
+          "name": "@tindevelopers/design-tokens",
+          "range": "workspace:^",
+          "section": "dev"
+        }
+      ],
+      "external": {
+        "dependencies": [
+          "@heroicons/react",
+          "@radix-ui/react-popover",
+          "clsx",
+          "lucide-react",
+          "react",
+          "react-dom",
+          "tailwind-merge"
+        ],
+        "peerDependencies": [
+          "next",
+          "react",
+          "react-dom"
+        ],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/api-credentials",
+      "name": "@tindevelopers/api-credentials",
+      "hub": "shared-api-hub",
+      "dir": "api-credentials",
+      "version": "0.3.0",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 6,
+      "links": [],
+      "external": {
+        "dependencies": [
+          "@unkey/api"
+        ],
+        "peerDependencies": [
+          "@supabase/supabase-js",
+          "payload"
+        ],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/api-mcp",
+      "name": "@tindevelopers/api-mcp",
+      "hub": "shared-api-hub",
+      "dir": "api-mcp",
+      "version": "1.0.0",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 3,
+      "links": [
+        {
+          "name": "@tindevelopers/api-credentials",
+          "range": ">=0.2.0 <0.4.0",
+          "section": "peer"
+        }
+      ],
+      "external": {
+        "dependencies": [
+          "@modelcontextprotocol/client",
+          "@modelcontextprotocol/core",
+          "@modelcontextprotocol/server"
+        ],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/domain-campaigns",
+      "name": "@tindevelopers/domain-campaigns",
+      "hub": "shared-client-care-hub",
+      "dir": "domain-campaigns",
+      "version": "1.1.1",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 1,
+      "links": [
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "^1.9.1",
+          "section": "dep"
+        },
+        {
+          "name": "@tindevelopers/schema-crm",
+          "range": "workspace:^",
+          "section": "dep"
+        },
+        {
+          "name": "@tindevelopers/core-kernel",
+          "range": "^1.0.0 || ^2.0.0 || ^3.0.0",
+          "section": "peer"
+        },
+        {
+          "name": "@tindevelopers/domain-identity",
+          "range": "^1.1.0 || ^2.0.0",
+          "section": "peer"
+        }
+      ],
+      "external": {
+        "dependencies": [
+          "@supabase/supabase-js"
+        ],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/domain-contacts",
+      "name": "@tindevelopers/domain-contacts",
+      "hub": "shared-client-care-hub",
+      "dir": "domain-contacts",
+      "version": "1.2.1",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 3,
+      "links": [
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "^1.9.1",
+          "section": "dep"
+        },
+        {
+          "name": "@tindevelopers/schema-crm",
+          "range": "workspace:^",
+          "section": "dep"
+        },
+        {
+          "name": "@tindevelopers/credential-crypto",
+          "range": "^1.0.0",
+          "section": "dep"
+        },
+        {
+          "name": "@tindevelopers/core-kernel",
+          "range": "^1.0.0 || ^2.0.0 || ^3.0.0",
+          "section": "peer"
+        },
+        {
+          "name": "@tindevelopers/domain-identity",
+          "range": "^1.1.0 || ^2.0.0",
+          "section": "peer"
+        }
+      ],
+      "external": {
+        "dependencies": [
+          "@supabase/supabase-js",
+          "server-only"
+        ],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/domain-pipeline",
+      "name": "@tindevelopers/domain-pipeline",
+      "hub": "shared-client-care-hub",
+      "dir": "domain-pipeline",
+      "version": "1.2.0",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 1,
+      "links": [
+        {
+          "name": "@tindevelopers/schema-crm",
+          "range": "workspace:^",
+          "section": "dep"
+        }
+      ],
+      "external": {
+        "dependencies": [
+          "@supabase/supabase-js",
+          "server-only"
+        ],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/domain-support",
+      "name": "@tindevelopers/domain-support",
+      "hub": "shared-client-care-hub",
+      "dir": "domain-support",
+      "version": "6.0.0",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 25,
+      "links": [
+        {
+          "name": "@tindevelopers/core-kernel",
+          "range": "^2.0.0",
+          "section": "peer"
+        },
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "^1.0.0",
+          "section": "peer"
+        },
+        {
+          "name": "@tindevelopers/schema-identity",
+          "range": "^1.1.1",
+          "section": "peer"
+        },
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "^1.9.1",
+          "section": "dev"
+        },
+        {
+          "name": "@tindevelopers/schema-identity",
+          "range": "^1.1.1",
+          "section": "dev"
+        }
+      ],
+      "external": {
+        "dependencies": [
+          "@supabase/supabase-js",
+          "server-only",
+          "zod"
+        ],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/schema-crm",
+      "name": "@tindevelopers/schema-crm",
+      "hub": "shared-client-care-hub",
+      "dir": "schema-crm",
+      "version": "1.2.0",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 2,
+      "links": [],
+      "external": {
+        "dependencies": [
+          "zod"
+        ],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/schema-support",
+      "name": "@tindevelopers/schema-support",
+      "hub": "shared-client-care-hub",
+      "dir": "schema-support",
+      "version": "1.0.0",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 2,
+      "links": [],
+      "external": {
+        "dependencies": [
+          "zod"
+        ],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/ui-crm",
+      "name": "@tindevelopers/ui-crm",
+      "hub": "shared-client-care-hub",
+      "dir": "ui-crm",
+      "version": "1.0.0",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 6,
+      "links": [
+        {
+          "name": "@tindevelopers/schema-crm",
+          "range": "workspace:^",
+          "section": "dep"
+        }
+      ],
+      "external": {
+        "dependencies": [
+          "clsx",
+          "tailwind-merge"
+        ],
+        "peerDependencies": [
+          "react",
+          "react-dom"
+        ],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/domain-identity",
+      "name": "@tindevelopers/domain-identity",
+      "hub": "shared-identity-hub",
+      "dir": "domain-identity",
+      "version": "2.3.0",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 88,
+      "links": [
+        {
+          "name": "@tindevelopers/schema-identity",
+          "range": "^1.0.0",
+          "section": "peer"
+        },
+        {
+          "name": "@tindevelopers/schema-identity",
+          "range": "^1.1.1",
+          "section": "dev"
+        }
+      ],
+      "external": {
+        "dependencies": [
+          "@supabase/ssr",
+          "@supabase/supabase-js",
+          "@workos-inc/node",
+          "server-only",
+          "zod"
+        ],
+        "peerDependencies": [
+          "@neondatabase/auth",
+          "drizzle-orm",
+          "next",
+          "react",
+          "react-dom"
+        ],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/schema-identity",
+      "name": "@tindevelopers/schema-identity",
+      "hub": "shared-identity-hub",
+      "dir": "schema-identity",
+      "version": "1.1.1",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 6,
+      "links": [],
+      "external": {
+        "dependencies": [],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/adapter-kit",
+      "name": "@tindevelopers/adapter-kit",
+      "hub": "shared-integration-hub",
+      "dir": "adapter-kit",
+      "version": "1.12.2",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 27,
+      "links": [
+        {
+          "name": "@tindevelopers/core-kernel",
+          "range": "^1.1.0 || ^2.0.0 || ^3.0.0",
+          "section": "peer"
+        },
+        {
+          "name": "@tindevelopers/core-kernel",
+          "range": "^3.0.0",
+          "section": "dev"
+        }
+      ],
+      "external": {
+        "dependencies": [
+          "@getbrevo/brevo",
+          "@supabase/supabase-js",
+          "assemblyai",
+          "telnyx",
+          "yjs"
+        ],
+        "peerDependencies": [
+          "@hocuspocus/provider",
+          "@liveblocks/client",
+          "@liveblocks/yjs"
+        ],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/adapter-pennylane",
+      "name": "@tindevelopers/adapter-pennylane",
+      "hub": "shared-integration-hub",
+      "dir": "adapter-pennylane",
+      "version": "1.0.0-next.1",
+      "private": false,
+      "stale": false,
+      "prerelease": true,
+      "exports": 1,
+      "links": [
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "^1.12.1",
+          "section": "peer"
+        },
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "^1.11.0",
+          "section": "dev"
+        }
+      ],
+      "external": {
+        "dependencies": [],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/adapter-quickbooks",
+      "name": "@tindevelopers/adapter-quickbooks",
+      "hub": "shared-integration-hub",
+      "dir": "adapter-quickbooks",
+      "version": "1.0.0-next.0",
+      "private": false,
+      "stale": false,
+      "prerelease": true,
+      "exports": 1,
+      "links": [
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "^1.12.1",
+          "section": "peer"
+        },
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "^1.11.0",
+          "section": "dev"
+        }
+      ],
+      "external": {
+        "dependencies": [],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/adapter-shopify",
+      "name": "@tindevelopers/adapter-shopify",
+      "hub": "shared-integration-hub",
+      "dir": "adapter-shopify",
+      "version": "1.0.0-next.0",
+      "private": false,
+      "stale": false,
+      "prerelease": true,
+      "exports": 1,
+      "links": [
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "^1.12.1",
+          "section": "peer"
+        },
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "^1.11.0",
+          "section": "dev"
+        }
+      ],
+      "external": {
+        "dependencies": [],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/adapter-stripe",
+      "name": "@tindevelopers/adapter-stripe",
+      "hub": "shared-integration-hub",
+      "dir": "adapter-stripe",
+      "version": "1.0.0-next.0",
+      "private": false,
+      "stale": false,
+      "prerelease": true,
+      "exports": 1,
+      "links": [
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "^1.12.1",
+          "section": "peer"
+        },
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "^1.11.0",
+          "section": "dev"
+        }
+      ],
+      "external": {
+        "dependencies": [
+          "stripe"
+        ],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/adapter-woocommerce",
+      "name": "@tindevelopers/adapter-woocommerce",
+      "hub": "shared-integration-hub",
+      "dir": "adapter-woocommerce",
+      "version": "1.0.0-next.0",
+      "private": false,
+      "stale": false,
+      "prerelease": true,
+      "exports": 1,
+      "links": [
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "^1.12.1",
+          "section": "peer"
+        },
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "^1.11.0",
+          "section": "dev"
+        }
+      ],
+      "external": {
+        "dependencies": [],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/adapter-xero",
+      "name": "@tindevelopers/adapter-xero",
+      "hub": "shared-integration-hub",
+      "dir": "adapter-xero",
+      "version": "1.0.0-next.0",
+      "private": false,
+      "stale": false,
+      "prerelease": true,
+      "exports": 1,
+      "links": [
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "^1.12.1",
+          "section": "peer"
+        },
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "^1.11.0",
+          "section": "dev"
+        }
+      ],
+      "external": {
+        "dependencies": [],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/credential-crypto",
+      "name": "@tindevelopers/credential-crypto",
+      "hub": "shared-integration-hub",
+      "dir": "credential-crypto",
+      "version": "1.0.0",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 1,
+      "links": [],
+      "external": {
+        "dependencies": [],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/core-kernel",
+      "name": "@tindevelopers/core-kernel",
+      "hub": "shell-base-admin",
+      "dir": "core-kernel",
+      "version": "3.0.0",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 10,
+      "links": [
+        {
+          "name": "@tindevelopers/credential-crypto",
+          "range": "^1.0.0",
+          "section": "dep"
+        },
+        {
+          "name": "@tindevelopers/domain-identity",
+          "range": "^2.0.0",
+          "section": "dep"
+        },
+        {
+          "name": "@tindevelopers/schema-identity",
+          "range": "^1.0.0",
+          "section": "dep"
+        }
+      ],
+      "external": {
+        "dependencies": [
+          "@supabase/supabase-js",
+          "clsx",
+          "server-only",
+          "tailwind-merge"
+        ],
+        "peerDependencies": [
+          "next",
+          "react",
+          "react-dom"
+        ],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/domain-billing",
+      "name": "@tindevelopers/domain-billing",
+      "hub": "shell-base-admin",
+      "dir": "domain-billing",
+      "version": "1.0.2",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 11,
+      "links": [
+        {
+          "name": "@tindevelopers/domain-identity",
+          "range": "^2.0.0",
+          "section": "dep"
+        }
+      ],
+      "external": {
+        "dependencies": [
+          "@stripe/stripe-js",
+          "stripe"
+        ],
+        "peerDependencies": [
+          "next"
+        ],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/domain-chatbot",
+      "name": "@tindevelopers/domain-chatbot",
+      "hub": "shell-base-admin",
+      "dir": "domain-chatbot",
+      "version": "1.0.1",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 15,
+      "links": [
+        {
+          "name": "@tindevelopers/domain-identity",
+          "range": "^2.0.0",
+          "section": "dep"
+        }
+      ],
+      "external": {
+        "dependencies": [
+          "@ai-sdk/openai",
+          "ai",
+          "openai"
+        ],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/domain-control-plane",
+      "name": "@tindevelopers/domain-control-plane",
+      "hub": "shell-base-admin",
+      "dir": "domain-control-plane",
+      "version": "1.2.0",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 4,
+      "links": [
+        {
+          "name": "@tindevelopers/domain-identity",
+          "range": "^2.1.1",
+          "section": "dep"
+        }
+      ],
+      "external": {
+        "dependencies": [],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/domain-control-plane-client",
+      "name": "@tindevelopers/domain-control-plane-client",
+      "hub": "shell-base-admin",
+      "dir": "domain-control-plane-client",
+      "version": "0.1.0",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 1,
+      "links": [],
+      "external": {
+        "dependencies": [],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/domain-email",
+      "name": "@tindevelopers/domain-email",
+      "hub": "shell-base-admin",
+      "dir": "domain-email",
+      "version": "1.0.1",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 12,
+      "links": [
+        {
+          "name": "@tindevelopers/credential-crypto",
+          "range": "^1.0.0",
+          "section": "dep"
+        },
+        {
+          "name": "@tindevelopers/domain-identity",
+          "range": "^2.0.0",
+          "section": "dep"
+        }
+      ],
+      "external": {
+        "dependencies": [
+          "@aws-sdk/client-ses",
+          "@getbrevo/brevo",
+          "resend",
+          "server-only"
+        ],
+        "peerDependencies": [
+          "react"
+        ],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/domain-identity@shell-base-admin",
+      "name": "@tindevelopers/domain-identity",
+      "hub": "shell-base-admin",
+      "dir": "domain-identity",
+      "version": "2.1.1",
+      "private": false,
+      "stale": true,
+      "prerelease": false,
+      "exports": 87,
+      "links": [
+        {
+          "name": "@tindevelopers/schema-identity",
+          "range": "^1.0.0",
+          "section": "peer"
+        },
+        {
+          "name": "@tindevelopers/schema-identity",
+          "range": "^1.1.1",
+          "section": "dev"
+        }
+      ],
+      "external": {
+        "dependencies": [
+          "@supabase/ssr",
+          "@supabase/supabase-js",
+          "@workos-inc/node",
+          "server-only",
+          "zod"
+        ],
+        "peerDependencies": [
+          "@neondatabase/auth",
+          "drizzle-orm",
+          "next",
+          "react",
+          "react-dom"
+        ],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/platform",
+      "name": "@tindevelopers/platform",
+      "hub": "shell-base-admin",
+      "dir": "platform",
+      "version": "1.4.2",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 13,
+      "links": [
+        {
+          "name": "@tindevelopers/core-kernel",
+          "range": "^3.0.0",
+          "section": "dep"
+        },
+        {
+          "name": "@tindevelopers/domain-identity",
+          "range": "^2.0.0",
+          "section": "dep"
+        }
+      ],
+      "external": {
+        "dependencies": [],
+        "peerDependencies": [
+          "react",
+          "react-dom"
+        ],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/schema-identity@shell-base-admin",
+      "name": "@tindevelopers/schema-identity",
+      "hub": "shell-base-admin",
+      "dir": "schema-identity",
+      "version": "1.1.1",
+      "private": false,
+      "stale": true,
+      "prerelease": false,
+      "exports": 6,
+      "links": [],
+      "external": {
+        "dependencies": [],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/ui-shell",
+      "name": "@tindevelopers/ui-shell",
+      "hub": "shell-base-admin",
+      "dir": "ui-shell",
+      "version": "1.2.0",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 6,
+      "links": [],
+      "external": {
+        "dependencies": [
+          "@heroicons/react",
+          "@popperjs/core",
+          "clsx",
+          "flatpickr",
+          "swiper",
+          "tailwind-merge"
+        ],
+        "peerDependencies": [
+          "next",
+          "react",
+          "react-dom"
+        ],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/agents",
+      "name": "@tindevelopers/agents",
+      "hub": "shell-base-agents",
+      "dir": "agents",
+      "version": "2.0.0",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 4,
+      "links": [
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "^1.4.0",
+          "section": "dep"
+        },
+        {
+          "name": "@tindevelopers/core-kernel",
+          "range": "^1.0.0 || ^2.0.0",
+          "section": "peer"
+        },
+        {
+          "name": "@tindevelopers/core-kernel",
+          "range": "^2.2.0",
+          "section": "dev"
+        }
+      ],
+      "external": {
+        "dependencies": [],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/boss",
+      "name": "@tindevelopers/boss",
+      "hub": "shell-base-boss",
+      "dir": "boss",
+      "version": "0.1.2",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 2,
+      "links": [
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "^1.7.0",
+          "section": "dep"
+        }
+      ],
+      "external": {
+        "dependencies": [
+          "zod"
+        ],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/comms",
+      "name": "@tindevelopers/comms",
+      "hub": "shell-base-cxp",
+      "dir": "comms",
+      "version": "3.1.0",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 21,
+      "links": [
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "^1.4.4",
+          "section": "dep"
+        },
+        {
+          "name": "@tindevelopers/core-kernel",
+          "range": "^1.0.0 || ^2.0.0",
+          "section": "peer"
+        },
+        {
+          "name": "@tindevelopers/core-kernel",
+          "range": "^2.2.0",
+          "section": "dev"
+        }
+      ],
+      "external": {
+        "dependencies": [
+          "clsx",
+          "tailwind-merge",
+          "telnyx"
+        ],
+        "peerDependencies": [
+          "react",
+          "react-dom"
+        ],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/domain-translation",
+      "name": "@tindevelopers/domain-translation",
+      "hub": "shell-base-cxp",
+      "dir": "domain-translation",
+      "version": "1.0.0",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 2,
+      "links": [],
+      "external": {
+        "dependencies": [
+          "@anthropic-ai/sdk"
+        ],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/domain-finance",
+      "name": "@tindevelopers/domain-finance",
+      "hub": "shell-base-finance",
+      "dir": "domain-finance",
+      "version": "1.0.0-next.0",
+      "private": false,
+      "stale": false,
+      "prerelease": true,
+      "exports": 1,
+      "links": [
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "^1.12.1",
+          "section": "peer"
+        },
+        {
+          "name": "@tindevelopers/credential-crypto",
+          "range": "^1.0.0",
+          "section": "peer"
+        },
+        {
+          "name": "@tindevelopers/schema-finance",
+          "range": "^1.0.0-next.0",
+          "section": "peer"
+        },
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "1.12.1",
+          "section": "dev"
+        },
+        {
+          "name": "@tindevelopers/credential-crypto",
+          "range": "1.0.0",
+          "section": "dev"
+        },
+        {
+          "name": "@tindevelopers/schema-finance",
+          "range": "^1.0.0-next.0",
+          "section": "dev"
+        }
+      ],
+      "external": {
+        "dependencies": [],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/domain-platform-billing",
+      "name": "@tindevelopers/domain-platform-billing",
+      "hub": "shell-base-finance",
+      "dir": "domain-platform-billing",
+      "version": "1.0.0-next.0",
+      "private": false,
+      "stale": false,
+      "prerelease": true,
+      "exports": 1,
+      "links": [
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "^1.12.1",
+          "section": "peer"
+        },
+        {
+          "name": "@tindevelopers/credential-crypto",
+          "range": "^1.0.0",
+          "section": "peer"
+        },
+        {
+          "name": "@tindevelopers/schema-finance",
+          "range": "^1.0.0-next.0",
+          "section": "peer"
+        },
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "1.12.1",
+          "section": "dev"
+        },
+        {
+          "name": "@tindevelopers/credential-crypto",
+          "range": "1.0.0",
+          "section": "dev"
+        },
+        {
+          "name": "@tindevelopers/schema-finance",
+          "range": "^1.0.0-next.0",
+          "section": "dev"
+        }
+      ],
+      "external": {
+        "dependencies": [],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/schema-finance",
+      "name": "@tindevelopers/schema-finance",
+      "hub": "shell-base-finance",
+      "dir": "schema-finance",
+      "version": "1.0.0-next.0",
+      "private": false,
+      "stale": false,
+      "prerelease": true,
+      "exports": 2,
+      "links": [
+        {
+          "name": "@tindevelopers/schema-identity",
+          "range": "^1.0.0",
+          "section": "peer"
+        }
+      ],
+      "external": {
+        "dependencies": [],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/knowledge",
+      "name": "@tindevelopers/knowledge",
+      "hub": "shell-base-knowledge",
+      "dir": "knowledge",
+      "version": "0.3.1",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 5,
+      "links": [
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "^1.8.0",
+          "section": "dep"
+        },
+        {
+          "name": "@tindevelopers/core-kernel",
+          "range": "^1.0.1 || ^2.0.0",
+          "section": "dep"
+        }
+      ],
+      "external": {
+        "dependencies": [
+          "@tiptap/core",
+          "@tiptap/extension-collaboration",
+          "@tiptap/extension-mention",
+          "@tiptap/extension-placeholder",
+          "@tiptap/extension-table",
+          "@tiptap/pm",
+          "@tiptap/react",
+          "@tiptap/starter-kit",
+          "@tiptap/suggestion",
+          "@tiptap/y-tiptap"
+        ],
+        "peerDependencies": [
+          "@supabase/supabase-js",
+          "react",
+          "react-dom",
+          "yjs"
+        ],
+        "optionalDependencies": []
+      }
+    },
+    {
+      "id": "@tindevelopers/meetings",
+      "name": "@tindevelopers/meetings",
+      "hub": "shell-base-meetings",
+      "dir": "meetings",
+      "version": "2.0.0",
+      "private": false,
+      "stale": false,
+      "prerelease": false,
+      "exports": 5,
+      "links": [
+        {
+          "name": "@tindevelopers/adapter-kit",
+          "range": "^1.4.0",
+          "section": "dep"
+        },
+        {
+          "name": "@tindevelopers/core-kernel",
+          "range": "^1.0.0 || ^2.0.0",
+          "section": "peer"
+        },
+        {
+          "name": "@tindevelopers/core-kernel",
+          "range": "^2.2.0",
+          "section": "dev"
+        }
+      ],
+      "external": {
+        "dependencies": [],
+        "peerDependencies": [],
+        "optionalDependencies": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "@tindevelopers/adapter-kit",
+      "to": "@tindevelopers/core-kernel",
+      "section": "peer",
+      "range": "^1.1.0 || ^2.0.0 || ^3.0.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/adapter-pennylane",
+      "to": "@tindevelopers/adapter-kit",
+      "section": "peer",
+      "range": "^1.12.1",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/adapter-quickbooks",
+      "to": "@tindevelopers/adapter-kit",
+      "section": "peer",
+      "range": "^1.12.1",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/adapter-shopify",
+      "to": "@tindevelopers/adapter-kit",
+      "section": "peer",
+      "range": "^1.12.1",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/adapter-stripe",
+      "to": "@tindevelopers/adapter-kit",
+      "section": "peer",
+      "range": "^1.12.1",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/adapter-woocommerce",
+      "to": "@tindevelopers/adapter-kit",
+      "section": "peer",
+      "range": "^1.12.1",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/adapter-xero",
+      "to": "@tindevelopers/adapter-kit",
+      "section": "peer",
+      "range": "^1.12.1",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/agents",
+      "to": "@tindevelopers/adapter-kit",
+      "section": "dep",
+      "range": "^1.4.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/agents",
+      "to": "@tindevelopers/core-kernel",
+      "section": "peer",
+      "range": "^1.0.0 || ^2.0.0",
+      "satisfiedByBranch": false
+    },
+    {
+      "from": "@tindevelopers/api-mcp",
+      "to": "@tindevelopers/api-credentials",
+      "section": "peer",
+      "range": ">=0.2.0 <0.4.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/boss",
+      "to": "@tindevelopers/adapter-kit",
+      "section": "dep",
+      "range": "^1.7.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/brands",
+      "to": "@tindevelopers/design-tokens",
+      "section": "dep",
+      "range": "workspace:^",
+      "satisfiedByBranch": null
+    },
+    {
+      "from": "@tindevelopers/comms",
+      "to": "@tindevelopers/adapter-kit",
+      "section": "dep",
+      "range": "^1.4.4",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/comms",
+      "to": "@tindevelopers/core-kernel",
+      "section": "peer",
+      "range": "^1.0.0 || ^2.0.0",
+      "satisfiedByBranch": false
+    },
+    {
+      "from": "@tindevelopers/core-kernel",
+      "to": "@tindevelopers/credential-crypto",
+      "section": "dep",
+      "range": "^1.0.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/core-kernel",
+      "to": "@tindevelopers/domain-identity",
+      "section": "dep",
+      "range": "^2.0.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/core-kernel",
+      "to": "@tindevelopers/schema-identity",
+      "section": "dep",
+      "range": "^1.0.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/domain-billing",
+      "to": "@tindevelopers/domain-identity",
+      "section": "dep",
+      "range": "^2.0.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/domain-campaigns",
+      "to": "@tindevelopers/adapter-kit",
+      "section": "dep",
+      "range": "^1.9.1",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/domain-campaigns",
+      "to": "@tindevelopers/core-kernel",
+      "section": "peer",
+      "range": "^1.0.0 || ^2.0.0 || ^3.0.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/domain-campaigns",
+      "to": "@tindevelopers/domain-identity",
+      "section": "peer",
+      "range": "^1.1.0 || ^2.0.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/domain-campaigns",
+      "to": "@tindevelopers/schema-crm",
+      "section": "dep",
+      "range": "workspace:^",
+      "satisfiedByBranch": null
+    },
+    {
+      "from": "@tindevelopers/domain-chatbot",
+      "to": "@tindevelopers/domain-identity",
+      "section": "dep",
+      "range": "^2.0.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/domain-contacts",
+      "to": "@tindevelopers/adapter-kit",
+      "section": "dep",
+      "range": "^1.9.1",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/domain-contacts",
+      "to": "@tindevelopers/core-kernel",
+      "section": "peer",
+      "range": "^1.0.0 || ^2.0.0 || ^3.0.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/domain-contacts",
+      "to": "@tindevelopers/credential-crypto",
+      "section": "dep",
+      "range": "^1.0.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/domain-contacts",
+      "to": "@tindevelopers/domain-identity",
+      "section": "peer",
+      "range": "^1.1.0 || ^2.0.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/domain-contacts",
+      "to": "@tindevelopers/schema-crm",
+      "section": "dep",
+      "range": "workspace:^",
+      "satisfiedByBranch": null
+    },
+    {
+      "from": "@tindevelopers/domain-control-plane",
+      "to": "@tindevelopers/domain-identity",
+      "section": "dep",
+      "range": "^2.1.1",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/domain-email",
+      "to": "@tindevelopers/credential-crypto",
+      "section": "dep",
+      "range": "^1.0.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/domain-email",
+      "to": "@tindevelopers/domain-identity",
+      "section": "dep",
+      "range": "^2.0.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/domain-finance",
+      "to": "@tindevelopers/adapter-kit",
+      "section": "peer",
+      "range": "^1.12.1",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/domain-finance",
+      "to": "@tindevelopers/credential-crypto",
+      "section": "peer",
+      "range": "^1.0.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/domain-finance",
+      "to": "@tindevelopers/schema-finance",
+      "section": "peer",
+      "range": "^1.0.0-next.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/domain-identity",
+      "to": "@tindevelopers/schema-identity",
+      "section": "peer",
+      "range": "^1.0.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/domain-identity@shell-base-admin",
+      "to": "@tindevelopers/schema-identity",
+      "section": "peer",
+      "range": "^1.0.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/domain-pipeline",
+      "to": "@tindevelopers/schema-crm",
+      "section": "dep",
+      "range": "workspace:^",
+      "satisfiedByBranch": null
+    },
+    {
+      "from": "@tindevelopers/domain-platform-billing",
+      "to": "@tindevelopers/adapter-kit",
+      "section": "peer",
+      "range": "^1.12.1",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/domain-platform-billing",
+      "to": "@tindevelopers/credential-crypto",
+      "section": "peer",
+      "range": "^1.0.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/domain-platform-billing",
+      "to": "@tindevelopers/schema-finance",
+      "section": "peer",
+      "range": "^1.0.0-next.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/domain-support",
+      "to": "@tindevelopers/adapter-kit",
+      "section": "peer",
+      "range": "^1.0.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/domain-support",
+      "to": "@tindevelopers/core-kernel",
+      "section": "peer",
+      "range": "^2.0.0",
+      "satisfiedByBranch": false
+    },
+    {
+      "from": "@tindevelopers/domain-support",
+      "to": "@tindevelopers/schema-identity",
+      "section": "peer",
+      "range": "^1.1.1",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/knowledge",
+      "to": "@tindevelopers/adapter-kit",
+      "section": "dep",
+      "range": "^1.8.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/knowledge",
+      "to": "@tindevelopers/core-kernel",
+      "section": "dep",
+      "range": "^1.0.1 || ^2.0.0",
+      "satisfiedByBranch": false
+    },
+    {
+      "from": "@tindevelopers/meetings",
+      "to": "@tindevelopers/adapter-kit",
+      "section": "dep",
+      "range": "^1.4.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/meetings",
+      "to": "@tindevelopers/core-kernel",
+      "section": "peer",
+      "range": "^1.0.0 || ^2.0.0",
+      "satisfiedByBranch": false
+    },
+    {
+      "from": "@tindevelopers/platform",
+      "to": "@tindevelopers/core-kernel",
+      "section": "dep",
+      "range": "^3.0.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/platform",
+      "to": "@tindevelopers/domain-identity",
+      "section": "dep",
+      "range": "^2.0.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/schema-finance",
+      "to": "@tindevelopers/schema-identity",
+      "section": "peer",
+      "range": "^1.0.0",
+      "satisfiedByBranch": true
+    },
+    {
+      "from": "@tindevelopers/ui-consumer",
+      "to": "@tindevelopers/brands",
+      "section": "dep",
+      "range": "workspace:^",
+      "satisfiedByBranch": null
+    },
+    {
+      "from": "@tindevelopers/ui-crm",
+      "to": "@tindevelopers/schema-crm",
+      "section": "dep",
+      "range": "workspace:^",
+      "satisfiedByBranch": null
+    }
+  ],
+  "unresolved": [],
+  "hubEdges": [
+    {
+      "from": "shell-base-admin",
+      "to": "shared-identity-hub",
+      "count": 8,
+      "via": [
+        "@tindevelopers/core-kernel -> @tindevelopers/domain-identity",
+        "@tindevelopers/core-kernel -> @tindevelopers/schema-identity",
+        "@tindevelopers/domain-billing -> @tindevelopers/domain-identity",
+        "@tindevelopers/domain-chatbot -> @tindevelopers/domain-identity",
+        "@tindevelopers/domain-control-plane -> @tindevelopers/domain-identity",
+        "@tindevelopers/domain-email -> @tindevelopers/domain-identity",
+        "@tindevelopers/domain-identity@shell-base-admin -> @tindevelopers/schema-identity",
+        "@tindevelopers/platform -> @tindevelopers/domain-identity"
+      ]
+    },
+    {
+      "from": "shared-client-care-hub",
+      "to": "shared-integration-hub",
+      "count": 4,
+      "via": [
+        "@tindevelopers/domain-campaigns -> @tindevelopers/adapter-kit",
+        "@tindevelopers/domain-contacts -> @tindevelopers/adapter-kit",
+        "@tindevelopers/domain-contacts -> @tindevelopers/credential-crypto",
+        "@tindevelopers/domain-support -> @tindevelopers/adapter-kit"
+      ]
+    },
+    {
+      "from": "shell-base-finance",
+      "to": "shared-integration-hub",
+      "count": 4,
+      "via": [
+        "@tindevelopers/domain-finance -> @tindevelopers/adapter-kit",
+        "@tindevelopers/domain-finance -> @tindevelopers/credential-crypto",
+        "@tindevelopers/domain-platform-billing -> @tindevelopers/adapter-kit",
+        "@tindevelopers/domain-platform-billing -> @tindevelopers/credential-crypto"
+      ]
+    },
+    {
+      "from": "shared-client-care-hub",
+      "to": "shared-identity-hub",
+      "count": 3,
+      "via": [
+        "@tindevelopers/domain-campaigns -> @tindevelopers/domain-identity",
+        "@tindevelopers/domain-contacts -> @tindevelopers/domain-identity",
+        "@tindevelopers/domain-support -> @tindevelopers/schema-identity"
+      ]
+    },
+    {
+      "from": "shared-client-care-hub",
+      "to": "shell-base-admin",
+      "count": 3,
+      "via": [
+        "@tindevelopers/domain-campaigns -> @tindevelopers/core-kernel",
+        "@tindevelopers/domain-contacts -> @tindevelopers/core-kernel",
+        "@tindevelopers/domain-support -> @tindevelopers/core-kernel"
+      ]
+    },
+    {
+      "from": "shell-base-admin",
+      "to": "shared-integration-hub",
+      "count": 2,
+      "via": [
+        "@tindevelopers/core-kernel -> @tindevelopers/credential-crypto",
+        "@tindevelopers/domain-email -> @tindevelopers/credential-crypto"
+      ]
+    },
+    {
+      "from": "shared-integration-hub",
+      "to": "shell-base-admin",
+      "count": 1,
+      "via": [
+        "@tindevelopers/adapter-kit -> @tindevelopers/core-kernel"
+      ]
+    },
+    {
+      "from": "shell-base-agents",
+      "to": "shared-integration-hub",
+      "count": 1,
+      "via": [
+        "@tindevelopers/agents -> @tindevelopers/adapter-kit"
+      ]
+    },
+    {
+      "from": "shell-base-agents",
+      "to": "shell-base-admin",
+      "count": 1,
+      "via": [
+        "@tindevelopers/agents -> @tindevelopers/core-kernel"
+      ]
+    },
+    {
+      "from": "shell-base-boss",
+      "to": "shared-integration-hub",
+      "count": 1,
+      "via": [
+        "@tindevelopers/boss -> @tindevelopers/adapter-kit"
+      ]
+    },
+    {
+      "from": "shell-base-cxp",
+      "to": "shared-integration-hub",
+      "count": 1,
+      "via": [
+        "@tindevelopers/comms -> @tindevelopers/adapter-kit"
+      ]
+    },
+    {
+      "from": "shell-base-cxp",
+      "to": "shell-base-admin",
+      "count": 1,
+      "via": [
+        "@tindevelopers/comms -> @tindevelopers/core-kernel"
+      ]
+    },
+    {
+      "from": "shell-base-finance",
+      "to": "shared-identity-hub",
+      "count": 1,
+      "via": [
+        "@tindevelopers/schema-finance -> @tindevelopers/schema-identity"
+      ]
+    },
+    {
+      "from": "shell-base-knowledge",
+      "to": "shared-integration-hub",
+      "count": 1,
+      "via": [
+        "@tindevelopers/knowledge -> @tindevelopers/adapter-kit"
+      ]
+    },
+    {
+      "from": "shell-base-knowledge",
+      "to": "shell-base-admin",
+      "count": 1,
+      "via": [
+        "@tindevelopers/knowledge -> @tindevelopers/core-kernel"
+      ]
+    },
+    {
+      "from": "shell-base-meetings",
+      "to": "shared-integration-hub",
+      "count": 1,
+      "via": [
+        "@tindevelopers/meetings -> @tindevelopers/adapter-kit"
+      ]
+    },
+    {
+      "from": "shell-base-meetings",
+      "to": "shell-base-admin",
+      "count": 1,
+      "via": [
+        "@tindevelopers/meetings -> @tindevelopers/core-kernel"
+      ]
+    }
+  ],
+  "cycles": [
+    [
+      "shared-integration-hub",
+      "shell-base-admin"
+    ]
+  ],
+  "metrics": {
+    "fanIn": {
+      "@tindevelopers/adapter-kit": 16,
+      "@tindevelopers/core-kernel": 9,
+      "@tindevelopers/domain-identity": 8,
+      "@tindevelopers/credential-crypto": 5,
+      "@tindevelopers/schema-identity": 5,
+      "@tindevelopers/schema-crm": 4,
+      "@tindevelopers/schema-finance": 2,
+      "@tindevelopers/api-credentials": 1,
+      "@tindevelopers/brands": 1,
+      "@tindevelopers/design-tokens": 1
+    }
+  },
+  "findings": [
+    {
+      "id": "duplicate-package:@tindevelopers/domain-identity",
+      "severity": "high",
+      "title": "@tindevelopers/domain-identity is published from 2 hubs",
+      "detail": "shared-identity-hub 2.3.0 (canonical); shell-base-admin 2.1.1 (stale copy)",
+      "packages": [
+        "@tindevelopers/domain-identity",
+        "@tindevelopers/domain-identity@shell-base-admin"
+      ]
+    },
+    {
+      "id": "duplicate-package:@tindevelopers/schema-identity",
+      "severity": "high",
+      "title": "@tindevelopers/schema-identity is published from 2 hubs",
+      "detail": "shared-identity-hub 1.1.1 (canonical); shell-base-admin 1.1.1 (stale copy)",
+      "packages": [
+        "@tindevelopers/schema-identity",
+        "@tindevelopers/schema-identity@shell-base-admin"
+      ]
+    },
+    {
+      "id": "hub-cycle:shared-integration-hub+shell-base-admin",
+      "severity": "high",
+      "title": "Hubs depend on each other: shared-integration-hub, shell-base-admin",
+      "detail": "shell-base-admin -> shared-integration-hub (2: @tindevelopers/core-kernel -> @tindevelopers/credential-crypto, @tindevelopers/domain-email -> @tindevelopers/credential-crypto); shared-integration-hub -> shell-base-admin (1: @tindevelopers/adapter-kit -> @tindevelopers/core-kernel)",
+      "packages": []
+    },
+    {
+      "id": "range-excludes-current:@tindevelopers/core-kernel",
+      "severity": "high",
+      "title": "5 ranges exclude @tindevelopers/core-kernel@3.0.0",
+      "detail": "@tindevelopers/agents (peer ^1.0.0 || ^2.0.0); @tindevelopers/comms (peer ^1.0.0 || ^2.0.0); @tindevelopers/domain-support (peer ^2.0.0); @tindevelopers/knowledge (dep ^1.0.1 || ^2.0.0); @tindevelopers/meetings (peer ^1.0.0 || ^2.0.0)",
+      "packages": [
+        "@tindevelopers/core-kernel",
+        "@tindevelopers/agents",
+        "@tindevelopers/comms",
+        "@tindevelopers/domain-support",
+        "@tindevelopers/knowledge",
+        "@tindevelopers/meetings"
+      ]
+    },
+    {
+      "id": "gravity-well:@tindevelopers/adapter-kit",
+      "severity": "info",
+      "title": "@tindevelopers/adapter-kit has 16 dependents",
+      "detail": "A breaking change here is an estate-wide event.",
+      "packages": [
+        "@tindevelopers/adapter-kit"
+      ]
+    },
+    {
+      "id": "gravity-well:@tindevelopers/core-kernel",
+      "severity": "info",
+      "title": "@tindevelopers/core-kernel has 9 dependents",
+      "detail": "A breaking change here is an estate-wide event.",
+      "packages": [
+        "@tindevelopers/core-kernel"
+      ]
+    },
+    {
+      "id": "gravity-well:@tindevelopers/domain-identity",
+      "severity": "info",
+      "title": "@tindevelopers/domain-identity has 8 dependents",
+      "detail": "A breaking change here is an estate-wide event.",
+      "packages": [
+        "@tindevelopers/domain-identity"
+      ]
+    },
+    {
+      "id": "prerelease-package",
+      "severity": "info",
+      "title": "9 prerelease packages",
+      "detail": "@tindevelopers/adapter-pennylane@1.0.0-next.1, @tindevelopers/adapter-quickbooks@1.0.0-next.0, @tindevelopers/adapter-shopify@1.0.0-next.0, @tindevelopers/adapter-stripe@1.0.0-next.0, @tindevelopers/adapter-woocommerce@1.0.0-next.0, @tindevelopers/adapter-xero@1.0.0-next.0, @tindevelopers/domain-finance@1.0.0-next.0, @tindevelopers/domain-platform-billing@1.0.0-next.0, @tindevelopers/schema-finance@1.0.0-next.0",
+      "packages": [
+        "@tindevelopers/adapter-pennylane",
+        "@tindevelopers/adapter-quickbooks",
+        "@tindevelopers/adapter-shopify",
+        "@tindevelopers/adapter-stripe",
+        "@tindevelopers/adapter-woocommerce",
+        "@tindevelopers/adapter-xero",
+        "@tindevelopers/domain-finance",
+        "@tindevelopers/domain-platform-billing",
+        "@tindevelopers/schema-finance"
+      ]
+    }
+  ]
+}
