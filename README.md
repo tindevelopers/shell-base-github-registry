@@ -131,6 +131,38 @@ pattern, not yet independently confirmed by its own CI failure — add
 `NODE_AUTH_TOKEN` alongside `HUB_REGISTRY_GH_TOKEN` before relying on the
 scheduled run.
 
+## Dependency graph (`GRAPH.json`, `GRAPH.md`)
+
+`REGISTER.md` says whether each hub's branch agrees with the registry. The dependency graph says how the hubs and packages depend on each other and where that structure is unhealthy. It is generated from the same `hubs.json`, from each hub's default branch, by `scripts/generate-graph.mjs` (Node, standard library only).
+
+```bash
+GITHUB_TOKEN=$(gh auth token) node scripts/generate-graph.mjs   # writes GRAPH.json and GRAPH.md
+node --test tests/graph.test.mjs                                  # unit tests, no network
+```
+
+| Output | What it holds |
+|---|---|
+| `GRAPH.json` | Packages (hub, version, in-estate links, external dependency names), package edges with the declared range, hub-to-hub edges, hub cycles, fan-in per package, and findings. Deterministic, so a diff shows real change. |
+| `GRAPH.md` | The same as a readable summary: findings, hub-to-hub table, most depended-on packages, packages by hub. |
+
+Findings it computes with no repo-specific knowledge:
+
+| Finding | Meaning |
+|---|---|
+| `range-excludes-current` | An internal dependency or peer range does not accept the version the target has on its branch (for example a peer of `^1 \|\| ^2` against a package now at 3.0.0). |
+| `duplicate-package` | One package name is published from two hubs. The copy in the declared owner hub (`graph-owners.json`), or else the highest version, is canonical; the other is reported as stale. |
+| `hub-cycle` | Hubs that depend on each other, directly or through other hubs. |
+| `gravity-well` | A package with 8 or more dependents. Informational. |
+| `prerelease-package` | Packages whose version is a prerelease. Informational. |
+
+It describes the source on the default branches. It does not query the npm registry; `REGISTER.md` already does. Edges come from `dependencies`, `peerDependencies` and `optionalDependencies`; `devDependencies` are ignored. Ranges such as `workspace:` or `npm:` aliases cannot be evaluated and are reported as unknown, not as failures.
+
+**Owners.** `graph-owners.json` declares which hub owns a package that is temporarily published from two hubs. Remove an entry once the duplicate is gone.
+
+**Not wired to CI.** The daily workflow still runs only `generate-register.mjs`. To keep the graph current, add `node scripts/generate-graph.mjs` and `git add GRAPH.json GRAPH.md` to `register.yml` after the register step. That commits to `main`, so it is left for a reviewed change. The unit tests run on every pull request (job `unit` in `ci.yml`).
+
+**Access.** The token needs read access to every repo in `hubs.json`, as for the register.
+
 ## Scope
 
 Discovery (`hubs.json`) currently covers the nine hub repos named in the
