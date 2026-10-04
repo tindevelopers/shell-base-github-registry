@@ -1,6 +1,6 @@
 # REGISTER.md
 
-Generated 2026-10-03T07:13:21.503Z by `scripts/generate-register.mjs` (T12, Shared Hubs Baseline, Milestone 3 — Registry truth).
+Generated 2026-10-04T09:02:37.757Z by `scripts/generate-register.mjs` (T12, Shared Hubs Baseline, Milestone 3 — Registry truth).
 
 Compares every discovered `@tindevelopers/*` package's default-branch version against the real `latest`/`next` dist-tags on the private registry (`https://npm.pkg.github.com`). A **backward** divergence — registry `latest` ahead of the branch's version — is the dangerous pattern found the hard way in T9 (`adapter-kit`) and T11 (`knowledge`): it means the branch's source does not reflect a version that was actually published, usually from two dev lines both publishing after a history-squashing event. A **forward** divergence (branch ahead of `latest`) is ordinary unreleased work and is never flagged as a problem.
 
@@ -14,7 +14,7 @@ Compares every discovered `@tindevelopers/*` package's default-branch version ag
 | `@tindevelopers/adapter-woocommerce` | tindevelopers/shared-integration-hub | 1.0.0-next.0 | — | — | — | OK (unpublished — no registry versions yet) |
 | `@tindevelopers/adapter-xero` | tindevelopers/shared-integration-hub | 1.0.0-next.0 | — | — | — | OK (unpublished — no registry versions yet) |
 | `@tindevelopers/agents` | tindevelopers/shell-base-agents | 2.0.0 | 2.0.0 | 2.0.0 | — | OK |
-| `@tindevelopers/api-credentials` | tindevelopers/shared-api-hub | 0.3.0 | 0.2.0 | 0.3.0 | @tindevelopers/api-mcp@`>=0.2.0 <0.4.0` | OK (forward — 0.3.0 published to "next", awaiting G2 promotion to "latest") |
+| `@tindevelopers/api-credentials` | tindevelopers/shared-api-hub | 0.3.0 | 0.3.0 | 0.3.0 | @tindevelopers/api-mcp@`>=0.2.0 <0.4.0` | OK |
 | `@tindevelopers/api-mcp` | tindevelopers/shared-api-hub | 1.0.0 | 0.2.1 | 1.0.0 | — | OK (forward — 1.0.0 published to "next", awaiting G2 promotion to "latest") |
 | `@tindevelopers/boss` | tindevelopers/shell-base-boss | 0.1.2 | 0.1.2 | 0.1.2 | — | OK |
 | `@tindevelopers/brands` | tindevelopers/chassis | 0.2.0 | 0.2.0 | — | @tindevelopers/ui-consumer@`workspace:^` | OK |
@@ -35,7 +35,7 @@ Compares every discovered `@tindevelopers/*` package's default-branch version ag
 | `@tindevelopers/domain-platform-billing` | tindevelopers/shell-base-finance | 1.0.0-next.0 | — | — | — | OK (unpublished — no registry versions yet) |
 | `@tindevelopers/domain-support` | tindevelopers/shared-client-care-hub | 6.0.0 | 6.0.0 | 6.0.0 | — | OK |
 | `@tindevelopers/domain-translation` | tindevelopers/shell-base-cxp | 1.0.0 | 1.0.0 | — | — | OK |
-| `@tindevelopers/knowledge` | tindevelopers/shell-base-knowledge | 0.3.1 | 0.4.0 | — | — | KNOWN DRIFT (allowlisted): registry latest 0.4.0 > branch 0.3.1 — T11 finding (Milestone 2 retrospective, 2026-09-23): three-version drift from an org-wide history-squashing event; one of the three drifted versions (0.2.0 or 0.3.0's true source) is genuinely unrecoverable. Investigated and accepted as KNOWN; a full reconciliation to 0.4.0 is out of scope for T12 and not yet scheduled. |
+| `@tindevelopers/knowledge` | tindevelopers/shell-base-knowledge | 0.3.1 | 0.4.1 | — | — | UNEXPLAINED: registry latest 0.4.1 is AHEAD of the default branch (0.3.1) — branch's source does not reflect a published version |
 | `@tindevelopers/meetings` | tindevelopers/shell-base-meetings | 2.0.0 | 2.0.0 | 2.0.0 | — | OK |
 | `@tindevelopers/platform` | tindevelopers/shell-base-admin | 1.4.2 | 1.4.2 | 1.4.2 | — | OK |
 | `@tindevelopers/schema-crm` | tindevelopers/shared-client-care-hub | 1.2.0 | 1.2.0 | 1.2.0 | @tindevelopers/domain-campaigns@`workspace:^`<br>@tindevelopers/domain-contacts@`workspace:^`<br>@tindevelopers/domain-pipeline@`workspace:^`<br>@tindevelopers/ui-crm@`workspace:^` | OK |
@@ -140,6 +140,6 @@ consumer pins (25 underlying packages):
 ## Summary
 
 - Packages discovered: 39, across 12 hub repos.
-- Unexplained backward divergences: 0.
+- Unexplained backward divergences: 1 — @tindevelopers/knowledge.
 - Known/allowlisted backward divergences: @tindevelopers/knowledge.
 
