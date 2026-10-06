@@ -1,0 +1,638 @@
+{
+  "generatedAt": "2026-10-06T07:18:56.394Z",
+  "rows": [
+    {
+      "package": "@tindevelopers/adapter-kit",
+      "repo": "tindevelopers/shared-integration-hub",
+      "branchVersion": "1.12.2",
+      "latest": "1.12.2",
+      "next": "1.12.2",
+      "dependents": [
+        {
+          "by": "@tindevelopers/adapter-pennylane",
+          "range": "^1.11.0"
+        },
+        {
+          "by": "@tindevelopers/adapter-pennylane",
+          "range": "^1.12.1"
+        },
+        {
+          "by": "@tindevelopers/adapter-quickbooks",
+          "range": "^1.11.0"
+        },
+        {
+          "by": "@tindevelopers/adapter-quickbooks",
+          "range": "^1.12.1"
+        },
+        {
+          "by": "@tindevelopers/adapter-shopify",
+          "range": "^1.11.0"
+        },
+        {
+          "by": "@tindevelopers/adapter-shopify",
+          "range": "^1.12.1"
+        },
+        {
+          "by": "@tindevelopers/adapter-stripe",
+          "range": "^1.11.0"
+        },
+        {
+          "by": "@tindevelopers/adapter-stripe",
+          "range": "^1.12.1"
+        },
+        {
+          "by": "@tindevelopers/adapter-woocommerce",
+          "range": "^1.11.0"
+        },
+        {
+          "by": "@tindevelopers/adapter-woocommerce",
+          "range": "^1.12.1"
+        },
+        {
+          "by": "@tindevelopers/adapter-xero",
+          "range": "^1.11.0"
+        },
+        {
+          "by": "@tindevelopers/adapter-xero",
+          "range": "^1.12.1"
+        },
+        {
+          "by": "@tindevelopers/agents",
+          "range": "^1.4.0"
+        },
+        {
+          "by": "@tindevelopers/boss",
+          "range": "^1.7.0"
+        },
+        {
+          "by": "@tindevelopers/comms",
+          "range": "^1.4.4"
+        },
+        {
+          "by": "@tindevelopers/domain-campaigns",
+          "range": "^1.9.1"
+        },
+        {
+          "by": "@tindevelopers/domain-contacts",
+          "range": "^1.9.1"
+        },
+        {
+          "by": "@tindevelopers/domain-finance",
+          "range": "^1.12.1"
+        },
+        {
+          "by": "@tindevelopers/domain-finance",
+          "range": "1.12.1"
+        },
+        {
+          "by": "@tindevelopers/domain-platform-billing",
+          "range": "^1.12.1"
+        },
+        {
+          "by": "@tindevelopers/domain-platform-billing",
+          "range": "1.12.1"
+        },
+        {
+          "by": "@tindevelopers/domain-support",
+          "range": "^1.0.0"
+        },
+        {
+          "by": "@tindevelopers/domain-support",
+          "range": "^1.9.1"
+        },
+        {
+          "by": "@tindevelopers/knowledge",
+          "range": "^1.8.0"
+        },
+        {
+          "by": "@tindevelopers/meetings",
+          "range": "^1.4.0"
+        }
+      ],
+      "divergence": "OK"
+    },
+    {
+      "package": "@tindevelopers/adapter-pennylane",
+      "repo": "tindevelopers/shared-integration-hub",
+      "branchVersion": "1.0.0-next.1",
+      "latest": null,
+      "next": null,
+      "dependents": [],
+      "divergence": "OK (unpublished — no registry versions yet)"
+    },
+    {
+      "package": "@tindevelopers/adapter-quickbooks",
+      "repo": "tindevelopers/shared-integration-hub",
+      "branchVersion": "1.0.0-next.0",
+      "latest": null,
+      "next": null,
+      "dependents": [],
+      "divergence": "OK (unpublished — no registry versions yet)"
+    },
+    {
+      "package": "@tindevelopers/adapter-shopify",
+      "repo": "tindevelopers/shared-integration-hub",
+      "branchVersion": "1.0.0-next.0",
+      "latest": null,
+      "next": null,
+      "dependents": [],
+      "divergence": "OK (unpublished — no registry versions yet)"
+    },
+    {
+      "package": "@tindevelopers/adapter-stripe",
+      "repo": "tindevelopers/shared-integration-hub",
+      "branchVersion": "1.0.0-next.0",
+      "latest": null,
+      "next": null,
+      "dependents": [],
+      "divergence": "OK (unpublished — no registry versions yet)"
+    },
+    {
+      "package": "@tindevelopers/adapter-woocommerce",
+      "repo": "tindevelopers/shared-integration-hub",
+      "branchVersion": "1.0.0-next.0",
+      "latest": null,
+      "next": null,
+      "dependents": [],
+      "divergence": "OK (unpublished — no registry versions yet)"
+    },
+    {
+      "package": "@tindevelopers/adapter-xero",
+      "repo": "tindevelopers/shared-integration-hub",
+      "branchVersion": "1.0.0-next.0",
+      "latest": null,
+      "next": null,
+      "dependents": [],
+      "divergence": "OK (unpublished — no registry versions yet)"
+    },
+    {
+      "package": "@tindevelopers/agents",
+      "repo": "tindevelopers/shell-base-agents",
+      "branchVersion": "2.0.0",
+      "latest": "2.0.0",
+      "next": "2.0.0",
+      "dependents": [],
+      "divergence": "OK"
+    },
+    {
+      "package": "@tindevelopers/api-credentials",
+      "repo": "tindevelopers/shared-api-hub",
+      "branchVersion": "0.3.0",
+      "latest": "0.3.0",
+      "next": "0.3.0",
+      "dependents": [
+        {
+          "by": "@tindevelopers/api-mcp",
+          "range": ">=0.2.0 <0.4.0"
+        }
+      ],
+      "divergence": "OK"
+    },
+    {
+      "package": "@tindevelopers/api-mcp",
+      "repo": "tindevelopers/shared-api-hub",
+      "branchVersion": "1.0.0",
+      "latest": "0.2.1",
+      "next": "1.0.0",
+      "dependents": [],
+      "divergence": "OK (forward — 1.0.0 published to \"next\", awaiting G2 promotion to \"latest\")"
+    },
+    {
+      "package": "@tindevelopers/boss",
+      "repo": "tindevelopers/shell-base-boss",
+      "branchVersion": "0.1.2",
+      "latest": "0.1.2",
+      "next": "0.1.2",
+      "dependents": [],
+      "divergence": "OK"
+    },
+    {
+      "package": "@tindevelopers/brands",
+      "repo": "tindevelopers/chassis",
+      "branchVersion": "0.2.0",
+      "latest": "0.2.0",
+      "next": null,
+      "dependents": [
+        {
+          "by": "@tindevelopers/ui-consumer",
+          "range": "workspace:^"
+        }
+      ],
+      "divergence": "OK"
+    },
+    {
+      "package": "@tindevelopers/comms",
+      "repo": "tindevelopers/shell-base-cxp",
+      "branchVersion": "3.1.0",
+      "latest": "3.1.0",
+      "next": "3.1.0",
+      "dependents": [],
+      "divergence": "OK"
+    },
+    {
+      "package": "@tindevelopers/core-kernel",
+      "repo": "tindevelopers/shell-base-admin",
+      "branchVersion": "3.0.0",
+      "latest": "3.0.0",
+      "next": "3.0.0",
+      "dependents": [
+        {
+          "by": "@tindevelopers/adapter-kit",
+          "range": "^1.1.0 || ^2.0.0 || ^3.0.0"
+        },
+        {
+          "by": "@tindevelopers/adapter-kit",
+          "range": "^3.0.0"
+        },
+        {
+          "by": "@tindevelopers/agents",
+          "range": "^1.0.0 || ^2.0.0"
+        },
+        {
+          "by": "@tindevelopers/agents",
+          "range": "^2.2.0"
+        },
+        {
+          "by": "@tindevelopers/comms",
+          "range": "^1.0.0 || ^2.0.0"
+        },
+        {
+          "by": "@tindevelopers/comms",
+          "range": "^2.2.0"
+        },
+        {
+          "by": "@tindevelopers/domain-campaigns",
+          "range": "^1.0.0 || ^2.0.0 || ^3.0.0"
+        },
+        {
+          "by": "@tindevelopers/domain-contacts",
+          "range": "^1.0.0 || ^2.0.0 || ^3.0.0"
+        },
+        {
+          "by": "@tindevelopers/domain-support",
+          "range": "^2.0.0"
+        },
+        {
+          "by": "@tindevelopers/knowledge",
+          "range": "^1.0.1 || ^2.0.0"
+        },
+        {
+          "by": "@tindevelopers/meetings",
+          "range": "^1.0.0 || ^2.0.0"
+        },
+        {
+          "by": "@tindevelopers/meetings",
+          "range": "^2.2.0"
+        },
+        {
+          "by": "@tindevelopers/platform",
+          "range": "^3.0.0"
+        }
+      ],
+      "divergence": "OK"
+    },
+    {
+      "package": "@tindevelopers/credential-crypto",
+      "repo": "tindevelopers/shared-integration-hub",
+      "branchVersion": "1.0.0",
+      "latest": "1.0.0",
+      "next": "1.0.0",
+      "dependents": [
+        {
+          "by": "@tindevelopers/core-kernel",
+          "range": "^1.0.0"
+        },
+        {
+          "by": "@tindevelopers/domain-contacts",
+          "range": "^1.0.0"
+        },
+        {
+          "by": "@tindevelopers/domain-email",
+          "range": "^1.0.0"
+        },
+        {
+          "by": "@tindevelopers/domain-finance",
+          "range": "^1.0.0"
+        },
+        {
+          "by": "@tindevelopers/domain-finance",
+          "range": "1.0.0"
+        },
+        {
+          "by": "@tindevelopers/domain-platform-billing",
+          "range": "^1.0.0"
+        },
+        {
+          "by": "@tindevelopers/domain-platform-billing",
+          "range": "1.0.0"
+        }
+      ],
+      "divergence": "OK"
+    },
+    {
+      "package": "@tindevelopers/design-tokens",
+      "repo": "tindevelopers/chassis",
+      "branchVersion": "0.1.0",
+      "latest": "0.1.0",
+      "next": null,
+      "dependents": [
+        {
+          "by": "@tindevelopers/brands",
+          "range": "workspace:^"
+        },
+        {
+          "by": "@tindevelopers/ui-consumer",
+          "range": "workspace:^"
+        }
+      ],
+      "divergence": "OK"
+    },
+    {
+      "package": "@tindevelopers/domain-billing",
+      "repo": "tindevelopers/shell-base-admin",
+      "branchVersion": "1.0.2",
+      "latest": "1.0.2",
+      "next": "1.0.2",
+      "dependents": [],
+      "divergence": "OK"
+    },
+    {
+      "package": "@tindevelopers/domain-campaigns",
+      "repo": "tindevelopers/shared-client-care-hub",
+      "branchVersion": "1.1.1",
+      "latest": "1.1.0",
+      "next": "1.1.1",
+      "dependents": [],
+      "divergence": "OK (forward — 1.1.1 published to \"next\", awaiting G2 promotion to \"latest\")"
+    },
+    {
+      "package": "@tindevelopers/domain-chatbot",
+      "repo": "tindevelopers/shell-base-admin",
+      "branchVersion": "1.0.1",
+      "latest": "1.0.1",
+      "next": "1.0.1",
+      "dependents": [],
+      "divergence": "OK"
+    },
+    {
+      "package": "@tindevelopers/domain-contacts",
+      "repo": "tindevelopers/shared-client-care-hub",
+      "branchVersion": "1.2.1",
+      "latest": "1.2.0",
+      "next": "1.2.1",
+      "dependents": [],
+      "divergence": "OK (forward — 1.2.1 published to \"next\", awaiting G2 promotion to \"latest\")"
+    },
+    {
+      "package": "@tindevelopers/domain-control-plane",
+      "repo": "tindevelopers/shell-base-admin",
+      "branchVersion": "1.2.0",
+      "latest": "1.2.0",
+      "next": "1.2.0",
+      "dependents": [],
+      "divergence": "OK"
+    },
+    {
+      "package": "@tindevelopers/domain-control-plane-client",
+      "repo": "tindevelopers/shell-base-admin",
+      "branchVersion": "0.1.0",
+      "latest": "0.1.0",
+      "next": "0.1.0",
+      "dependents": [],
+      "divergence": "OK"
+    },
+    {
+      "package": "@tindevelopers/domain-email",
+      "repo": "tindevelopers/shell-base-admin",
+      "branchVersion": "1.0.1",
+      "latest": "1.0.1",
+      "next": "1.0.1",
+      "dependents": [],
+      "divergence": "OK"
+    },
+    {
+      "package": "@tindevelopers/domain-finance",
+      "repo": "tindevelopers/shell-base-finance",
+      "branchVersion": "1.0.0-next.0",
+      "latest": null,
+      "next": null,
+      "dependents": [],
+      "divergence": "OK (unpublished — no registry versions yet)"
+    },
+    {
+      "package": "@tindevelopers/domain-identity",
+      "repo": "tindevelopers/shared-identity-hub",
+      "branchVersion": "2.3.0",
+      "latest": "2.3.0",
+      "next": "2.3.0",
+      "dependents": [
+        {
+          "by": "@tindevelopers/core-kernel",
+          "range": "^2.0.0"
+        },
+        {
+          "by": "@tindevelopers/domain-billing",
+          "range": "^2.0.0"
+        },
+        {
+          "by": "@tindevelopers/domain-campaigns",
+          "range": "^1.1.0 || ^2.0.0"
+        },
+        {
+          "by": "@tindevelopers/domain-chatbot",
+          "range": "^2.0.0"
+        },
+        {
+          "by": "@tindevelopers/domain-contacts",
+          "range": "^1.1.0 || ^2.0.0"
+        },
+        {
+          "by": "@tindevelopers/domain-control-plane",
+          "range": "^2.1.1"
+        },
+        {
+          "by": "@tindevelopers/domain-email",
+          "range": "^2.0.0"
+        },
+        {
+          "by": "@tindevelopers/platform",
+          "range": "^2.0.0"
+        }
+      ],
+      "divergence": "OK"
+    },
+    {
+      "package": "@tindevelopers/domain-pipeline",
+      "repo": "tindevelopers/shared-client-care-hub",
+      "branchVersion": "1.2.0",
+      "latest": null,
+      "next": "1.2.0",
+      "dependents": [],
+      "divergence": "OK (unpublished — no registry versions yet)"
+    },
+    {
+      "package": "@tindevelopers/domain-platform-billing",
+      "repo": "tindevelopers/shell-base-finance",
+      "branchVersion": "1.0.0-next.0",
+      "latest": null,
+      "next": null,
+      "dependents": [],
+      "divergence": "OK (unpublished — no registry versions yet)"
+    },
+    {
+      "package": "@tindevelopers/domain-support",
+      "repo": "tindevelopers/shared-client-care-hub",
+      "branchVersion": "6.0.0",
+      "latest": "6.0.0",
+      "next": "6.0.0",
+      "dependents": [],
+      "divergence": "OK"
+    },
+    {
+      "package": "@tindevelopers/domain-translation",
+      "repo": "tindevelopers/shell-base-cxp",
+      "branchVersion": "1.0.0",
+      "latest": "1.0.0",
+      "next": null,
+      "dependents": [],
+      "divergence": "OK"
+    },
+    {
+      "package": "@tindevelopers/knowledge",
+      "repo": "tindevelopers/shell-base-knowledge",
+      "branchVersion": "0.3.1",
+      "latest": "0.4.1",
+      "next": null,
+      "dependents": [],
+      "divergence": "UNEXPLAINED: registry latest 0.4.1 is AHEAD of the default branch (0.3.1) — branch's source does not reflect a published version"
+    },
+    {
+      "package": "@tindevelopers/meetings",
+      "repo": "tindevelopers/shell-base-meetings",
+      "branchVersion": "2.0.0",
+      "latest": "2.0.0",
+      "next": "2.0.0",
+      "dependents": [],
+      "divergence": "OK"
+    },
+    {
+      "package": "@tindevelopers/platform",
+      "repo": "tindevelopers/shell-base-admin",
+      "branchVersion": "1.4.2",
+      "latest": "1.4.2",
+      "next": "1.4.2",
+      "dependents": [],
+      "divergence": "OK"
+    },
+    {
+      "package": "@tindevelopers/schema-crm",
+      "repo": "tindevelopers/shared-client-care-hub",
+      "branchVersion": "1.2.0",
+      "latest": "1.2.0",
+      "next": "1.2.0",
+      "dependents": [
+        {
+          "by": "@tindevelopers/domain-campaigns",
+          "range": "workspace:^"
+        },
+        {
+          "by": "@tindevelopers/domain-contacts",
+          "range": "workspace:^"
+        },
+        {
+          "by": "@tindevelopers/domain-pipeline",
+          "range": "workspace:^"
+        },
+        {
+          "by": "@tindevelopers/ui-crm",
+          "range": "workspace:^"
+        }
+      ],
+      "divergence": "OK"
+    },
+    {
+      "package": "@tindevelopers/schema-finance",
+      "repo": "tindevelopers/shell-base-finance",
+      "branchVersion": "1.0.0-next.0",
+      "latest": null,
+      "next": null,
+      "dependents": [
+        {
+          "by": "@tindevelopers/domain-finance",
+          "range": "^1.0.0-next.0"
+        },
+        {
+          "by": "@tindevelopers/domain-platform-billing",
+          "range": "^1.0.0-next.0"
+        }
+      ],
+      "divergence": "OK (unpublished — no registry versions yet)"
+    },
+    {
+      "package": "@tindevelopers/schema-identity",
+      "repo": "tindevelopers/shared-identity-hub",
+      "branchVersion": "1.1.1",
+      "latest": "1.1.1",
+      "next": "1.1.1",
+      "dependents": [
+        {
+          "by": "@tindevelopers/core-kernel",
+          "range": "^1.0.0"
+        },
+        {
+          "by": "@tindevelopers/domain-identity",
+          "range": "^1.0.0"
+        },
+        {
+          "by": "@tindevelopers/domain-identity",
+          "range": "^1.1.1"
+        },
+        {
+          "by": "@tindevelopers/domain-support",
+          "range": "^1.1.1"
+        },
+        {
+          "by": "@tindevelopers/schema-finance",
+          "range": "^1.0.0"
+        }
+      ],
+      "divergence": "OK"
+    },
+    {
+      "package": "@tindevelopers/schema-support",
+      "repo": "tindevelopers/shared-client-care-hub",
+      "branchVersion": "1.0.0",
+      "latest": null,
+      "next": "1.0.0",
+      "dependents": [],
+      "divergence": "OK (unpublished — no registry versions yet)"
+    },
+    {
+      "package": "@tindevelopers/ui-consumer",
+      "repo": "tindevelopers/chassis",
+      "branchVersion": "0.2.0",
+      "latest": "0.2.0",
+      "next": null,
+      "dependents": [],
+      "divergence": "OK"
+    },
+    {
+      "package": "@tindevelopers/ui-crm",
+      "repo": "tindevelopers/shared-client-care-hub",
+      "branchVersion": "1.0.1",
+      "latest": "1.0.0",
+      "next": "1.0.1",
+      "dependents": [],
+      "divergence": "OK (forward — 1.0.1 published to \"next\", awaiting G2 promotion to \"latest\")"
+    },
+    {
+      "package": "@tindevelopers/ui-shell",
+      "repo": "tindevelopers/shell-base-admin",
+      "branchVersion": "1.2.0",
+      "latest": "1.2.0",
+      "next": "1.2.0",
+      "dependents": [],
+      "divergence": "OK"
+    }
+  ]
+}

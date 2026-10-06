@@ -1,6 +1,6 @@
 # REGISTER.md
 
-Generated 2026-10-05T07:26:30.142Z by `scripts/generate-register.mjs` (T12, Shared Hubs Baseline, Milestone 3 — Registry truth).
+Generated 2026-10-06T07:18:56.393Z by `scripts/generate-register.mjs` (T12, Shared Hubs Baseline, Milestone 3 — Registry truth).
 
 Compares every discovered `@tindevelopers/*` package's default-branch version against the real `latest`/`next` dist-tags on the private registry (`https://npm.pkg.github.com`). A **backward** divergence — registry `latest` ahead of the branch's version — is the dangerous pattern found the hard way in T9 (`adapter-kit`) and T11 (`knowledge`): it means the branch's source does not reflect a version that was actually published, usually from two dev lines both publishing after a history-squashing event. A **forward** divergence (branch ahead of `latest`) is ordinary unreleased work and is never flagged as a problem.
 
@@ -43,7 +43,7 @@ Compares every discovered `@tindevelopers/*` package's default-branch version ag
 | `@tindevelopers/schema-identity` | tindevelopers/shared-identity-hub | 1.1.1 | 1.1.1 | 1.1.1 | @tindevelopers/core-kernel@`^1.0.0`<br>@tindevelopers/domain-identity@`^1.0.0`<br>@tindevelopers/domain-identity@`^1.1.1`<br>@tindevelopers/domain-support@`^1.1.1`<br>@tindevelopers/schema-finance@`^1.0.0` | OK |
 | `@tindevelopers/schema-support` | tindevelopers/shared-client-care-hub | 1.0.0 | — | 1.0.0 | — | OK (unpublished — no registry versions yet) |
 | `@tindevelopers/ui-consumer` | tindevelopers/chassis | 0.2.0 | 0.2.0 | — | — | OK |
-| `@tindevelopers/ui-crm` | tindevelopers/shared-client-care-hub | 1.0.0 | 1.0.0 | 1.0.0 | — | OK |
+| `@tindevelopers/ui-crm` | tindevelopers/shared-client-care-hub | 1.0.1 | 1.0.0 | 1.0.1 | — | OK (forward — 1.0.1 published to "next", awaiting G2 promotion to "latest") |
 | `@tindevelopers/ui-shell` | tindevelopers/shell-base-admin | 1.2.0 | 1.2.0 | 1.2.0 | — | OK |
 
 ## Konnect's own pin-consistency signal
@@ -73,12 +73,12 @@ catalog entries (26):
   @tindevelopers/domain-pipeline@1.2.0
   @tindevelopers/domain-support@5.1.0
   @tindevelopers/domain-translation@1.0.0
-  @tindevelopers/knowledge@0.3.1
+  @tindevelopers/knowledge@0.4.1
   @tindevelopers/meetings@2.0.0
   @tindevelopers/platform@1.4.2
   @tindevelopers/schema-crm@1.2.0
   @tindevelopers/schema-identity@1.1.1
-  @tindevelopers/ui-crm@1.0.0
+  @tindevelopers/ui-crm@1.0.1
   @tindevelopers/ui-shell@1.2.0
 pnpm.overrides entries (26):
   @tindevelopers/adapter-kit@1.9.1
@@ -100,15 +100,15 @@ pnpm.overrides entries (26):
   @tindevelopers/domain-pipeline@1.2.0
   @tindevelopers/domain-support@5.1.0
   @tindevelopers/domain-translation@1.0.0
-  @tindevelopers/knowledge@0.3.1
+  @tindevelopers/knowledge@0.4.1
   @tindevelopers/meetings@2.0.0
   @tindevelopers/platform@1.4.2
   @tindevelopers/schema-crm@1.2.0
   @tindevelopers/schema-identity@1.1.1
-  @tindevelopers/ui-crm@1.0.0
+  @tindevelopers/ui-crm@1.0.1
   @tindevelopers/ui-shell@1.2.0
 consumer pins (25 underlying packages):
-  @tindevelopers/adapter-kit@1.9.1  via [@base/integrations]  in 4 files
+  @tindevelopers/adapter-kit@1.9.1  via [@base/integrations]  in 5 files
   @tindevelopers/agents@2.0.0  via [@base/agents, @tindevelopers/agents]  in 4 files
   @tindevelopers/api-credentials@0.3.0  via [@base/api-credentials, @tindevelopers/api-credentials]  in 1 files
   @tindevelopers/api-mcp@0.1.0  via [@base/api-mcp]  in 1 files
@@ -127,14 +127,18 @@ consumer pins (25 underlying packages):
   @tindevelopers/domain-pipeline@1.2.0  via [@base/pipeline]  in 3 files
   @tindevelopers/domain-support@5.1.0  via [@base/support]  in 4 files
   @tindevelopers/domain-translation@1.0.0  via [@base/translation]  in 4 files
-  @tindevelopers/knowledge@0.3.1  via [@base/knowledge]  in 3 files
+  @tindevelopers/knowledge@0.4.1  via [@base/knowledge]  in 5 files
   @tindevelopers/meetings@2.0.0  via [@base/meetings, @tindevelopers/meetings]  in 4 files
   @tindevelopers/platform@1.4.2  via [@tindevelopers/platform]  in 2 files
   @tindevelopers/schema-identity@1.1.1  via [@tindevelopers/schema-identity]  in 2 files
-  @tindevelopers/ui-crm@1.0.0  via [@base/ui-crm]  in 2 files
+  @tindevelopers/ui-crm@1.0.1  via [@base/ui-crm]  in 2 files
   @tindevelopers/ui-shell@1.2.0  via [@base/ui-shell]  in 4 files
 
-✓ all pins are consistent across catalog + pnpm.overrides + consumers.
+✘ drift detected:
+  - @tindevelopers/adapter-kit pinned at [1.9.1, 1.10.0] across apps/app/package.json, apps/conversations/package.json, apps/knowledge-worker/package.json, apps/ops/package.json, apps/partner/package.json — expected single version 1.9.1 per catalog.
+  - @tindevelopers/knowledge pinned at [0.4.1, 0.3.1] across apps/app/package.json, apps/knowledge-collab/package.json, apps/knowledge-worker/package.json, apps/ops/package.json, apps/partner/package.json — expected single version 0.4.1 per catalog.
+
+Fix by updating pnpm-workspace.yaml catalog (the source of truth), then re-run.
 ```
 
 ## Summary
