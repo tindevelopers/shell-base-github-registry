@@ -3,7 +3,7 @@
 //
 // Collector for the TIN ops console (tin-ops-console, spec section 3). Records OBSERVED state only:
 //   - package versions and divergence, from REGISTER.json (written by generate-register.mjs)
-//   - cell health, from tin-boss-api/cells/*.json plus GET <url>/healthz and /readyz
+//   - cell health, from tin-boss-api/cells/*.json plus GET <url>/healthz and /readyz (/readyz only on *.run.app)
 // into the console's Neon database, as the collector_writer role. It never reads or writes
 // the console's declared registry (projects, pins, owners): the console is the authority for that.
 //
@@ -54,12 +54,25 @@ async function status(fetchFn, url) {
   }
 }
 
-/** A cell with no url is recorded with null statuses (unhealthy), never skipped. */
+/** Cloud Run's frontend reserves /healthz and answers 404 before the request reaches the service. */
+export function isCloudRun(url) {
+  try {
+    return new URL(url).hostname.endsWith(".run.app");
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * A cell with no url is recorded with null statuses (unhealthy), never skipped.
+ * On *.run.app only /readyz is called and healthz_status is null ("not checked"):
+ * /healthz can never pass there, and a ready service is by definition running.
+ */
 export async function checkCell(cell, fetchFn, now = new Date()) {
   const base = cell.url?.replace(/\/+$/, "");
-  const [healthzStatus, readyzStatus] = base
-    ? await Promise.all([status(fetchFn, `${base}/healthz`), status(fetchFn, `${base}/readyz`)])
-    : [null, null];
+  const ready = base ? status(fetchFn, `${base}/readyz`) : Promise.resolve(null);
+  const live = base && !isCloudRun(base) ? status(fetchFn, `${base}/healthz`) : Promise.resolve(null);
+  const [healthzStatus, readyzStatus] = await Promise.all([live, ready]);
   return { ...cell, healthzStatus, readyzStatus, checkedAt: now.toISOString() };
 }
 
