@@ -82,7 +82,9 @@ jobs:
         if: always() && steps.generate.outcome != 'skipped'
         run: |
           rm -f konnect-pin-check.txt
-          git add REGISTER.md REGISTER.json
+          git add REGISTER.md
+          # REGISTER.json only exists if the generate step got far enough to write it.
+          if [ -f REGISTER.json ]; then git add REGISTER.json; fi
           if git diff --cached --quiet; then
             echo "REGISTER.md and REGISTER.json unchanged."
             exit 0
