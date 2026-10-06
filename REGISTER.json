@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T07:25:07.281Z",
+  "generatedAt": "2026-10-06T07:35:22.321Z",
   "rows": [
     {
       "package": "@tindevelopers/adapter-kit",
@@ -504,7 +504,7 @@
       "latest": "0.4.1",
       "next": null,
       "dependents": [],
-      "divergence": "UNEXPLAINED: registry latest 0.4.1 is AHEAD of the default branch (0.3.1) — branch's source does not reflect a published version"
+      "divergence": "KNOWN DRIFT (allowlisted): registry latest 0.4.1 > branch 0.3.1 — T11 finding (Milestone 2 retrospective, 2026-09-23): three-version drift from an org-wide history-squashing event; one of the three drifted versions (0.2.0 or 0.3.0's true source) is genuinely unrecoverable. Investigated and accepted as KNOWN; a full reconciliation to 0.4.0 is out of scope for T12 and not yet scheduled. UPDATED 2026-10-06 (re-investigated because the registry's latest moved from 0.4.0 to 0.4.1): this is a second out-of-band publish on top of the written-off 0.4.0 line. shell-base-knowledge's default branch is still 0.3.1 and no branch there has 0.4.x source, so 0.4.1 cannot be reviewed from that repo. konnect-caas-base commit 39d3f483 (2026-10-04) describes 0.4.1 as the published package that also carries a migration-guard fix committed in Konnect (6f1eb5b2), and Konnect's apps/app, apps/ops and apps/partner now pin it. The owner's 2026-09-26 decision (0.4.0 written off; the next release from source must be 0.5.0 or higher) is unchanged and does not by itself cover 0.4.1."
     },
     {
       "package": "@tindevelopers/meetings",
