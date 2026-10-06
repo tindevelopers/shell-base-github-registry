@@ -31,7 +31,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
       - run: git diff --stat -- REGISTER.md || true
 
-  # No secrets needed: pure unit tests for scripts/generate-graph.mjs.
+  # No secrets needed: pure unit tests for scripts/generate-graph.mjs and scripts/collect-status.mjs.
   unit:
     runs-on: ubuntu-latest
     steps:
@@ -39,4 +39,4 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - run: node --test tests/graph.test.mjs
+      - run: node --test tests/graph.test.mjs tests/collect-status.test.mjs

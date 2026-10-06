@@ -180,3 +180,16 @@ turns out to actually publish `@tindevelopers/*` packages, add it to
 Deprecating any package, moving a dist-tag, or reconciling
 `@tindevelopers/knowledge`'s drift is **not** this repo's job — see T13 in
 the Shared Hubs Baseline plan (its own G3 human-authorization gate).
+
+## Status collector (TIN ops console)
+
+`scripts/generate-register.mjs` also writes `REGISTER.json`, the machine-readable twin of `REGISTER.md` (same rows, same divergence text). `scripts/collect-status.mjs` then records **observed** state in the ops console's Neon database as the `collector_writer` role:
+
+- every package row from `REGISTER.json` (`package_snapshots`);
+- every cell in `tin-boss-api/cells/*.json`, with the HTTP status of `GET <url>/healthz` and `/readyz` (`cell_snapshots`). A cell file with no `url` is recorded as unhealthy, not skipped.
+
+It never reads or writes the console's declared registry (projects, versions, owners): the console is the authority for that, and drift is the difference between the two.
+
+A failing source does not fail the run: it is recorded as `partial` with the error, and the other source's rows are still written. Runs older than 90 days are pruned. The workflow step is `continue-on-error`, so a collector problem never hides a register result.
+
+Setup (owner): create the `NEON_COLLECTOR_URL` repository secret from the `collector_writer` role (login must be enabled first), and make sure `HUB_REGISTRY_GH_TOKEN` can read `tindevelopers/tin-boss-api`. Until the secret exists the step prints a warning and skips. Try it without writing anything: `GITHUB_TOKEN=... node scripts/collect-status.mjs --dry-run`.

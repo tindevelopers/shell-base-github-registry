@@ -11,9 +11,13 @@
   "scripts": {
     "register": "node scripts/generate-register.mjs",
     "graph": "node scripts/generate-graph.mjs",
-    "test": "node --test tests/graph.test.mjs"
+    "test": "node --test tests/graph.test.mjs tests/collect-status.test.mjs",
+    "collect": "node scripts/collect-status.mjs"
   },
   "devDependencies": {
     "@types/node": "^22.10.5"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.2.0"
   }
 }

@@ -9,7 +9,7 @@
 // and what range), and flags divergence between a package's default-branch
 // version and the registry's `latest`.
 //
-// Emits REGISTER.md at the repo root. Exits 1 (fails CI) when it finds a
+// Emits REGISTER.md and its machine-readable twin REGISTER.json at the repo root. Exits 1 (fails CI) when it finds a
 // BACKWARD divergence — the registry's `latest` is a version the default
 // branch's source does not reflect (the T9 adapter-kit / T11 knowledge
 // pattern: history was squashed or two dev lines both published, and the
@@ -28,6 +28,7 @@ import { execFileSync } from "node:child_process";
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { toRegisterJson } from "./register-json.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, "..");
@@ -279,7 +280,8 @@ function main() {
   lines.push(`- Known/allowlisted backward divergences: ${known.entries.length ? known.entries.map((e) => e.package).join(", ") : "none"}.`);
   lines.push("");
   writeFileSync(join(ROOT, "REGISTER.md"), lines.join("\n") + "\n");
-  console.log(`Wrote REGISTER.md: ${rows.length} packages, ${unexplained.length} unexplained divergence(s).`);
+  writeFileSync(join(ROOT, "REGISTER.json"), JSON.stringify(toRegisterJson(rows, dependentsOf, new Date().toISOString()), null, 2) + "\n");
+  console.log(`Wrote REGISTER.md and REGISTER.json: ${rows.length} packages, ${unexplained.length} unexplained divergence(s).`);
 
   if (unexplained.length > 0) {
     console.error("\n✘ unexplained backward divergence(s):");
