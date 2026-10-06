@@ -60,6 +60,22 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
+      # Diagnostic: says which token the run is using and which hub repos it can see. Prints no secret
+      # (only the token owner's HTTP status, scopes and expiry). Never fails the job.
+      - name: Check token access (diagnostic)
+        continue-on-error: true
+        env:
+          TOKEN: ${{ secrets.HUB_REGISTRY_GH_TOKEN || secrets.GITHUB_TOKEN }}
+          HAS_HUB_TOKEN: ${{ secrets.HUB_REGISTRY_GH_TOKEN != '' }}
+        run: |
+          echo "HUB_REGISTRY_GH_TOKEN is set: $HAS_HUB_TOKEN (if false, the default repo-only token is used)"
+          status() { curl -s -o /dev/null -w '%{http_code}' -H "Authorization: Bearer $TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/$1"; }
+          echo "GET /user -> $(status user)  (200 = a personal token; 403 = the default Actions token)"
+          for r in shell-base-admin tin-boss-api shared-identity-hub shell-base-boss chassis; do
+            echo "repo tindevelopers/$r -> $(status repos/tindevelopers/$r)  (200 = visible, 404 = no access)"
+          done
+          curl -sI -H "Authorization: Bearer $TOKEN" https://api.github.com/user | grep -iE '^(x-oauth-scopes|github-authentication-token-expiration):' || true
+
       # The core comparison. Fails the job on an unexplained backward
       # divergence (registry latest ahead of a package's default branch) —
       # see scripts/generate-register.mjs for the full classification.
