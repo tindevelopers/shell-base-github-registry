@@ -78,16 +78,28 @@ jobs:
       # Runs even when the comparison above found (and failed on) an
       # unexplained divergence, so the committed REGISTER.md always reflects
       # what this run actually found — never only the runs that passed.
-      - name: Commit updated REGISTER.md
+      - name: Commit updated REGISTER.md and REGISTER.json
         if: always() && steps.generate.outcome != 'skipped'
         run: |
           rm -f konnect-pin-check.txt
-          if git diff --quiet -- REGISTER.md; then
-            echo "REGISTER.md unchanged."
+          git add REGISTER.md REGISTER.json
+          if git diff --cached --quiet; then
+            echo "REGISTER.md and REGISTER.json unchanged."
             exit 0
           fi
           git config user.name "hub-registry-bot"
           git config user.email "hub-registry-bot@users.noreply.github.com"
-          git add REGISTER.md
           git commit -m "chore: update REGISTER.md ($(date -u +%Y-%m-%d))"
           git push
+
+      # Records OBSERVED state (package versions, cell health) for the TIN ops console.
+      # Never fails the job: a collector problem must not hide a register result. Skips with a
+      # warning until the NEON_COLLECTOR_URL secret (collector_writer role) exists. Reading
+      # tin-boss-api/cells needs the HUB_REGISTRY_GH_TOKEN secret to include that repo.
+      - name: Collect status for the ops console
+        if: always() && steps.generate.outcome != 'skipped'
+        continue-on-error: true
+        run: node scripts/collect-status.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.HUB_REGISTRY_GH_TOKEN || secrets.GITHUB_TOKEN }}
+          NEON_COLLECTOR_URL: ${{ secrets.NEON_COLLECTOR_URL }}
