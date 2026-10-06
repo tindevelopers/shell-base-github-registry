@@ -2,7 +2,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { toRegisterJson } from "../scripts/register-json.mjs";
-import { checkCell, collect, packageSnapshots, parseCell, persist } from "../scripts/collect-status.mjs";
+import { checkCell, collect, isCloudRun, packageSnapshots, parseCell, persist } from "../scripts/collect-status.mjs";
 
 const NOW = new Date("2026-10-06T07:00:00Z");
 
@@ -37,6 +37,22 @@ test("checkCell records the HTTP status of /healthz and /readyz", async () => {
   assert.equal(r.healthzStatus, 200);
   assert.equal(r.readyzStatus, 503);
   assert.equal(r.checkedAt, NOW.toISOString());
+});
+
+test("checkCell: on Cloud Run only /readyz is called, because the frontend reserves /healthz", async () => {
+  const seen = [];
+  const run = { ...cell, url: "https://tin-boss-api-konnect-dev-hek4oupkra-nw.a.run.app" };
+  const r = await checkCell(run, async (u) => { seen.push(u); return { status: 200 }; }, NOW);
+  assert.deepEqual(seen, ["https://tin-boss-api-konnect-dev-hek4oupkra-nw.a.run.app/readyz"]);
+  assert.equal(r.healthzStatus, null);
+  assert.equal(r.readyzStatus, 200);
+});
+
+test("isCloudRun matches run.app hosts only", () => {
+  assert.equal(isCloudRun("https://x-abc-nw.a.run.app"), true);
+  assert.equal(isCloudRun("https://cell.example"), false);
+  assert.equal(isCloudRun("https://notrun.app.example.com"), false);
+  assert.equal(isCloudRun("not a url"), false);
 });
 
 test("checkCell: a network error is a null status, not a crash", async () => {
