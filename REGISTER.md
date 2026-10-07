@@ -1,6 +1,6 @@
 # REGISTER.md
 
-Generated 2026-10-06T07:35:22.320Z by `scripts/generate-register.mjs` (T12, Shared Hubs Baseline, Milestone 3 — Registry truth).
+Generated 2026-10-07T14:04:40.985Z by `scripts/generate-register.mjs` (T12, Shared Hubs Baseline, Milestone 3 — Registry truth).
 
 Compares every discovered `@tindevelopers/*` package's default-branch version against the real `latest`/`next` dist-tags on the private registry (`https://npm.pkg.github.com`). A **backward** divergence — registry `latest` ahead of the branch's version — is the dangerous pattern found the hard way in T9 (`adapter-kit`) and T11 (`knowledge`): it means the branch's source does not reflect a version that was actually published, usually from two dev lines both publishing after a history-squashing event. A **forward** divergence (branch ahead of `latest`) is ordinary unreleased work and is never flagged as a problem.
 
@@ -54,7 +54,7 @@ Compares every discovered `@tindevelopers/*` package's default-branch version ag
 hub-package pin check
 ---------------------
 catalog entries (26):
-  @tindevelopers/adapter-kit@1.9.1
+  @tindevelopers/adapter-kit@1.12.2
   @tindevelopers/agents@2.0.0
   @tindevelopers/api-credentials@0.3.0
   @tindevelopers/api-mcp@0.1.0
@@ -81,7 +81,7 @@ catalog entries (26):
   @tindevelopers/ui-crm@1.0.1
   @tindevelopers/ui-shell@1.2.0
 pnpm.overrides entries (26):
-  @tindevelopers/adapter-kit@1.9.1
+  @tindevelopers/adapter-kit@1.12.2
   @tindevelopers/agents@2.0.0
   @tindevelopers/api-credentials@0.3.0
   @tindevelopers/api-mcp@0.1.0
@@ -108,7 +108,7 @@ pnpm.overrides entries (26):
   @tindevelopers/ui-crm@1.0.1
   @tindevelopers/ui-shell@1.2.0
 consumer pins (25 underlying packages):
-  @tindevelopers/adapter-kit@1.9.1  via [@base/integrations]  in 5 files
+  @tindevelopers/adapter-kit@1.12.2  via [@base/integrations]  in 5 files
   @tindevelopers/agents@2.0.0  via [@base/agents, @tindevelopers/agents]  in 4 files
   @tindevelopers/api-credentials@0.3.0  via [@base/api-credentials, @tindevelopers/api-credentials]  in 1 files
   @tindevelopers/api-mcp@0.1.0  via [@base/api-mcp]  in 1 files
@@ -134,11 +134,7 @@ consumer pins (25 underlying packages):
   @tindevelopers/ui-crm@1.0.1  via [@base/ui-crm]  in 2 files
   @tindevelopers/ui-shell@1.2.0  via [@base/ui-shell]  in 4 files
 
-✘ drift detected:
-  - @tindevelopers/adapter-kit pinned at [1.9.1, 1.10.0] across apps/app/package.json, apps/conversations/package.json, apps/knowledge-worker/package.json, apps/ops/package.json, apps/partner/package.json — expected single version 1.9.1 per catalog.
-  - @tindevelopers/knowledge pinned at [0.4.1, 0.3.1] across apps/app/package.json, apps/knowledge-collab/package.json, apps/knowledge-worker/package.json, apps/ops/package.json, apps/partner/package.json — expected single version 0.4.1 per catalog.
-
-Fix by updating pnpm-workspace.yaml catalog (the source of truth), then re-run.
+✓ all pins are consistent across catalog + pnpm.overrides + consumers.
 ```
 
 ## Summary
