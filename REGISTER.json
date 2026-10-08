@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T19:51:55.865Z",
+  "generatedAt": "2026-10-08T14:14:27.419Z",
   "rows": [
     {
       "package": "@tindevelopers/adapter-kit",
@@ -109,6 +109,14 @@
           "range": "1.12.2"
         },
         {
+          "by": "@tindevelopers/knowledge-worker",
+          "range": "^1.12.2"
+        },
+        {
+          "by": "@tindevelopers/knowledge-worker",
+          "range": "1.12.2"
+        },
+        {
           "by": "@tindevelopers/meetings",
           "range": "^1.4.0"
         }
@@ -172,11 +180,11 @@
     {
       "package": "@tindevelopers/agents",
       "repo": "tindevelopers/shell-base-agents",
-      "branchVersion": "2.0.0",
-      "latest": "2.0.0",
+      "branchVersion": "2.0.1",
+      "latest": "2.0.1",
       "next": "2.0.0",
       "dependents": [],
-      "divergence": "OK"
+      "divergence": "OK [note: \"next\" (2.0.0) is BEHIND \"latest\" (2.0.1)]"
     },
     {
       "package": "@tindevelopers/api-credentials",
@@ -227,11 +235,11 @@
     {
       "package": "@tindevelopers/comms",
       "repo": "tindevelopers/shell-base-cxp",
-      "branchVersion": "3.1.0",
-      "latest": "3.1.0",
+      "branchVersion": "3.1.1",
+      "latest": "3.1.1",
       "next": "3.1.0",
       "dependents": [],
-      "divergence": "OK"
+      "divergence": "OK [note: \"next\" (3.1.0) is BEHIND \"latest\" (3.1.1)]"
     },
     {
       "package": "@tindevelopers/core-kernel",
@@ -250,19 +258,19 @@
         },
         {
           "by": "@tindevelopers/agents",
-          "range": "^1.0.0 || ^2.0.0"
+          "range": "^1.0.0 || ^2.0.0 || ^3.0.0"
         },
         {
           "by": "@tindevelopers/agents",
-          "range": "^2.2.0"
+          "range": "3.0.0"
         },
         {
           "by": "@tindevelopers/comms",
-          "range": "^1.0.0 || ^2.0.0"
+          "range": "^1.0.0 || ^2.0.0 || ^3.0.0"
         },
         {
           "by": "@tindevelopers/comms",
-          "range": "^2.2.0"
+          "range": "3.0.0"
         },
         {
           "by": "@tindevelopers/domain-campaigns",
@@ -274,15 +282,19 @@
         },
         {
           "by": "@tindevelopers/domain-support",
-          "range": "^2.0.0"
+          "range": "^2.0.0 || ^3.0.0"
+        },
+        {
+          "by": "@tindevelopers/domain-support",
+          "range": "3.0.0"
         },
         {
           "by": "@tindevelopers/meetings",
-          "range": "^1.0.0 || ^2.0.0"
+          "range": "^1.0.0 || ^2.0.0 || ^3.0.0"
         },
         {
           "by": "@tindevelopers/meetings",
-          "range": "^2.2.0"
+          "range": "3.0.0"
         },
         {
           "by": "@tindevelopers/platform",
@@ -465,10 +477,10 @@
       "package": "@tindevelopers/domain-pipeline",
       "repo": "tindevelopers/shared-client-care-hub",
       "branchVersion": "1.2.0",
-      "latest": null,
+      "latest": "1.2.0",
       "next": "1.2.0",
       "dependents": [],
-      "divergence": "OK (unpublished — no registry versions yet)"
+      "divergence": "OK"
     },
     {
       "package": "@tindevelopers/domain-platform-billing",
@@ -482,9 +494,9 @@
     {
       "package": "@tindevelopers/domain-support",
       "repo": "tindevelopers/shared-client-care-hub",
-      "branchVersion": "6.0.0",
-      "latest": "6.0.0",
-      "next": "6.0.0",
+      "branchVersion": "6.0.1",
+      "latest": "6.0.1",
+      "next": "6.0.1",
       "dependents": [],
       "divergence": "OK"
     },
@@ -500,8 +512,26 @@
     {
       "package": "@tindevelopers/knowledge",
       "repo": "tindevelopers/shell-base-knowledge",
-      "branchVersion": "0.5.0",
-      "latest": "0.5.0",
+      "branchVersion": "0.7.0",
+      "latest": "0.7.0",
+      "next": null,
+      "dependents": [
+        {
+          "by": "@tindevelopers/knowledge-worker",
+          "range": "^0.6.0 || ^0.7.0"
+        },
+        {
+          "by": "@tindevelopers/knowledge-worker",
+          "range": "workspace:*"
+        }
+      ],
+      "divergence": "OK"
+    },
+    {
+      "package": "@tindevelopers/knowledge-worker",
+      "repo": "tindevelopers/shell-base-knowledge",
+      "branchVersion": "0.1.0",
+      "latest": "0.1.0",
       "next": null,
       "dependents": [],
       "divergence": "OK"
@@ -509,11 +539,11 @@
     {
       "package": "@tindevelopers/meetings",
       "repo": "tindevelopers/shell-base-meetings",
-      "branchVersion": "2.0.0",
-      "latest": "2.0.0",
+      "branchVersion": "2.0.1",
+      "latest": "2.0.1",
       "next": "2.0.0",
       "dependents": [],
-      "divergence": "OK"
+      "divergence": "OK [note: \"next\" (2.0.0) is BEHIND \"latest\" (2.0.1)]"
     },
     {
       "package": "@tindevelopers/platform",
@@ -602,10 +632,10 @@
       "package": "@tindevelopers/schema-support",
       "repo": "tindevelopers/shared-client-care-hub",
       "branchVersion": "1.0.0",
-      "latest": null,
+      "latest": "1.0.0",
       "next": "1.0.0",
       "dependents": [],
-      "divergence": "OK (unpublished — no registry versions yet)"
+      "divergence": "OK"
     },
     {
       "package": "@tindevelopers/ui-consumer",
