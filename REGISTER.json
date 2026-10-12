@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-10-11T13:39:44.337Z",
+  "generatedAt": "2026-10-12T16:20:27.960Z",
   "rows": [
     {
       "package": "@tindevelopers/adapter-kit",
       "repo": "tindevelopers/shared-integration-hub",
-      "branchVersion": "1.12.2",
-      "latest": "1.12.2",
-      "next": "1.12.2",
+      "branchVersion": "1.13.0",
+      "latest": "1.13.0",
+      "next": "1.13.0",
       "dependents": [
         {
           "by": "@tindevelopers/adapter-pennylane",
@@ -106,7 +106,7 @@
         },
         {
           "by": "@tindevelopers/knowledge",
-          "range": "1.12.2"
+          "range": "1.13.0"
         },
         {
           "by": "@tindevelopers/knowledge-worker",
@@ -221,8 +221,8 @@
     {
       "package": "@tindevelopers/brands",
       "repo": "tindevelopers/chassis",
-      "branchVersion": "0.2.0",
-      "latest": "0.2.0",
+      "branchVersion": "0.2.1",
+      "latest": "0.2.1",
       "next": null,
       "dependents": [
         {
@@ -344,8 +344,8 @@
     {
       "package": "@tindevelopers/design-tokens",
       "repo": "tindevelopers/chassis",
-      "branchVersion": "0.1.0",
-      "latest": "0.1.0",
+      "branchVersion": "0.1.1",
+      "latest": "0.1.1",
       "next": null,
       "dependents": [
         {
@@ -512,13 +512,13 @@
     {
       "package": "@tindevelopers/knowledge",
       "repo": "tindevelopers/shell-base-knowledge",
-      "branchVersion": "0.7.0",
-      "latest": "0.7.0",
+      "branchVersion": "0.8.0",
+      "latest": "0.8.0",
       "next": null,
       "dependents": [
         {
           "by": "@tindevelopers/knowledge-worker",
-          "range": "^0.6.0 || ^0.7.0"
+          "range": "^0.8.0"
         },
         {
           "by": "@tindevelopers/knowledge-worker",
@@ -530,8 +530,8 @@
     {
       "package": "@tindevelopers/knowledge-worker",
       "repo": "tindevelopers/shell-base-knowledge",
-      "branchVersion": "0.1.0",
-      "latest": "0.1.0",
+      "branchVersion": "0.8.0",
+      "latest": "0.8.0",
       "next": null,
       "dependents": [],
       "divergence": "OK"
