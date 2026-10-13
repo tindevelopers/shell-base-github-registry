@@ -1,6 +1,6 @@
 # REGISTER.md
 
-Generated 2026-10-12T16:20:27.959Z by `scripts/generate-register.mjs` (T12, Shared Hubs Baseline, Milestone 3 — Registry truth).
+Generated 2026-10-13T14:42:30.505Z by `scripts/generate-register.mjs` (T12, Shared Hubs Baseline, Milestone 3 — Registry truth).
 
 Compares every discovered `@tindevelopers/*` package's default-branch version against the real `latest`/`next` dist-tags on the private registry (`https://npm.pkg.github.com`). A **backward** divergence — registry `latest` ahead of the branch's version — is the dangerous pattern found the hard way in T9 (`adapter-kit`) and T11 (`knowledge`): it means the branch's source does not reflect a version that was actually published, usually from two dev lines both publishing after a history-squashing event. A **forward** divergence (branch ahead of `latest`) is ordinary unreleased work and is never flagged as a problem.
 
@@ -30,18 +30,18 @@ Compares every discovered `@tindevelopers/*` package's default-branch version ag
 | `@tindevelopers/domain-control-plane-client` | tindevelopers/shell-base-admin | 0.1.0 | 0.1.0 | 0.1.0 | — | OK |
 | `@tindevelopers/domain-email` | tindevelopers/shell-base-admin | 1.0.1 | 1.0.1 | 1.0.1 | — | OK |
 | `@tindevelopers/domain-finance` | tindevelopers/shell-base-finance | 1.0.0-next.0 | — | — | — | OK (unpublished — no registry versions yet) |
-| `@tindevelopers/domain-identity` | tindevelopers/shared-identity-hub | 2.3.0 | 2.3.0 | 2.3.0 | @tindevelopers/core-kernel@`^2.0.0`<br>@tindevelopers/domain-billing@`^2.0.0`<br>@tindevelopers/domain-campaigns@`^1.1.0 || ^2.0.0`<br>@tindevelopers/domain-chatbot@`^2.0.0`<br>@tindevelopers/domain-contacts@`^1.1.0 || ^2.0.0`<br>@tindevelopers/domain-control-plane@`^2.1.1`<br>@tindevelopers/domain-email@`^2.0.0`<br>@tindevelopers/platform@`^2.0.0` | OK |
+| `@tindevelopers/domain-identity` | tindevelopers/shared-identity-hub | 2.4.0 | 2.3.0 | 2.3.0 | @tindevelopers/core-kernel@`^2.0.0`<br>@tindevelopers/domain-billing@`^2.0.0`<br>@tindevelopers/domain-campaigns@`^1.1.0 || ^2.0.0`<br>@tindevelopers/domain-chatbot@`^2.0.0`<br>@tindevelopers/domain-contacts@`^1.1.0 || ^2.0.0`<br>@tindevelopers/domain-control-plane@`^2.1.1`<br>@tindevelopers/domain-email@`^2.0.0`<br>@tindevelopers/platform@`^2.0.0` | OK (forward — branch 2.4.0 ahead of registry latest 2.3.0, unreleased) |
 | `@tindevelopers/domain-pipeline` | tindevelopers/shared-client-care-hub | 1.2.0 | 1.2.0 | 1.2.0 | — | OK |
 | `@tindevelopers/domain-platform-billing` | tindevelopers/shell-base-finance | 1.0.0-next.0 | — | — | — | OK (unpublished — no registry versions yet) |
 | `@tindevelopers/domain-support` | tindevelopers/shared-client-care-hub | 6.0.1 | 6.0.1 | 6.0.1 | — | OK |
 | `@tindevelopers/domain-translation` | tindevelopers/shell-base-cxp | 1.0.0 | 1.0.0 | — | — | OK |
-| `@tindevelopers/knowledge` | tindevelopers/shell-base-knowledge | 0.8.0 | 0.8.0 | — | @tindevelopers/knowledge-worker@`^0.8.0`<br>@tindevelopers/knowledge-worker@`workspace:*` | OK |
-| `@tindevelopers/knowledge-worker` | tindevelopers/shell-base-knowledge | 0.8.0 | 0.8.0 | — | — | OK |
+| `@tindevelopers/knowledge` | tindevelopers/shell-base-knowledge | 0.8.1 | 0.8.1 | — | @tindevelopers/knowledge-worker@`^0.8.0`<br>@tindevelopers/knowledge-worker@`workspace:*` | OK |
+| `@tindevelopers/knowledge-worker` | tindevelopers/shell-base-knowledge | 0.8.1 | 0.8.1 | — | — | OK |
 | `@tindevelopers/meetings` | tindevelopers/shell-base-meetings | 2.0.1 | 2.0.1 | 2.0.0 | — | OK [note: "next" (2.0.0) is BEHIND "latest" (2.0.1)] |
 | `@tindevelopers/platform` | tindevelopers/shell-base-admin | 1.4.2 | 1.4.2 | 1.4.2 | — | OK |
 | `@tindevelopers/schema-crm` | tindevelopers/shared-client-care-hub | 1.2.0 | 1.2.0 | 1.2.0 | @tindevelopers/domain-campaigns@`workspace:^`<br>@tindevelopers/domain-contacts@`workspace:^`<br>@tindevelopers/domain-pipeline@`workspace:^`<br>@tindevelopers/ui-crm@`workspace:^` | OK |
 | `@tindevelopers/schema-finance` | tindevelopers/shell-base-finance | 1.0.0-next.0 | — | — | @tindevelopers/domain-finance@`^1.0.0-next.0`<br>@tindevelopers/domain-platform-billing@`^1.0.0-next.0` | OK (unpublished — no registry versions yet) |
-| `@tindevelopers/schema-identity` | tindevelopers/shared-identity-hub | 1.1.1 | 1.1.1 | 1.1.1 | @tindevelopers/core-kernel@`^1.0.0`<br>@tindevelopers/domain-identity@`^1.0.0`<br>@tindevelopers/domain-identity@`^1.1.1`<br>@tindevelopers/domain-support@`^1.1.1`<br>@tindevelopers/schema-finance@`^1.0.0` | OK |
+| `@tindevelopers/schema-identity` | tindevelopers/shared-identity-hub | 1.2.0 | 1.1.1 | 1.1.1 | @tindevelopers/core-kernel@`^1.0.0`<br>@tindevelopers/domain-identity@`^1.0.0`<br>@tindevelopers/domain-identity@`^1.2.0`<br>@tindevelopers/domain-support@`^1.1.1`<br>@tindevelopers/schema-finance@`^1.0.0` | OK (forward — branch 1.2.0 ahead of registry latest 1.1.1, unreleased) |
 | `@tindevelopers/schema-support` | tindevelopers/shared-client-care-hub | 1.0.0 | 1.0.0 | 1.0.0 | — | OK |
 | `@tindevelopers/ui-consumer` | tindevelopers/chassis | 0.2.0 | 0.2.0 | — | — | OK |
 | `@tindevelopers/ui-crm` | tindevelopers/shared-client-care-hub | 1.0.1 | 1.0.0 | 1.0.1 | — | OK (forward — 1.0.1 published to "next", awaiting G2 promotion to "latest") |
@@ -55,7 +55,7 @@ Compares every discovered `@tindevelopers/*` package's default-branch version ag
 hub-package pin check
 ---------------------
 catalog entries (27):
-  @tindevelopers/adapter-kit@1.12.2
+  @tindevelopers/adapter-kit@1.13.0
   @tindevelopers/agents@2.0.1
   @tindevelopers/api-credentials@0.3.0
   @tindevelopers/api-mcp@0.1.0
@@ -74,8 +74,8 @@ catalog entries (27):
   @tindevelopers/domain-pipeline@1.2.0
   @tindevelopers/domain-support@6.0.1
   @tindevelopers/domain-translation@1.0.0
-  @tindevelopers/knowledge@0.7.0
-  @tindevelopers/knowledge-worker@0.1.0
+  @tindevelopers/knowledge@0.8.0
+  @tindevelopers/knowledge-worker@0.8.0
   @tindevelopers/meetings@2.0.1
   @tindevelopers/platform@1.4.2
   @tindevelopers/schema-crm@1.2.0
@@ -83,7 +83,7 @@ catalog entries (27):
   @tindevelopers/ui-crm@1.0.1
   @tindevelopers/ui-shell@1.2.0
 pnpm.overrides entries (26):
-  @tindevelopers/adapter-kit@1.12.2
+  @tindevelopers/adapter-kit@1.13.0
   @tindevelopers/agents@2.0.1
   @tindevelopers/api-credentials@0.3.0
   @tindevelopers/api-mcp@0.1.0
@@ -101,8 +101,8 @@ pnpm.overrides entries (26):
   @tindevelopers/domain-pipeline@1.2.0
   @tindevelopers/domain-support@6.0.1
   @tindevelopers/domain-translation@1.0.0
-  @tindevelopers/knowledge@0.7.0
-  @tindevelopers/knowledge-worker@0.1.0
+  @tindevelopers/knowledge@0.8.0
+  @tindevelopers/knowledge-worker@0.8.0
   @tindevelopers/meetings@2.0.1
   @tindevelopers/platform@1.4.2
   @tindevelopers/schema-crm@1.2.0
@@ -110,13 +110,13 @@ pnpm.overrides entries (26):
   @tindevelopers/ui-crm@1.0.1
   @tindevelopers/ui-shell@1.2.0
 consumer pins (26 underlying packages):
-  @tindevelopers/adapter-kit@1.12.2  via [@base/integrations]  in 5 files
+  @tindevelopers/adapter-kit@1.13.0  via [@base/integrations]  in 5 files
   @tindevelopers/agents@2.0.1  via [@base/agents, @tindevelopers/agents]  in 4 files
   @tindevelopers/api-credentials@0.3.0  via [@base/api-credentials, @tindevelopers/api-credentials]  in 1 files
   @tindevelopers/api-mcp@0.1.0  via [@base/api-mcp]  in 1 files
   @tindevelopers/boss@0.1.1  via [@base/boss]  in 1 files
   @tindevelopers/comms@3.1.1  via [@tindevelopers/comms]  in 4 files
-  @tindevelopers/core-kernel@3.0.0  via [@base/core]  in 4 files
+  @tindevelopers/core-kernel@3.0.0  via [@base/core, @tindevelopers/core-kernel]  in 4 files
   @tindevelopers/credential-crypto@1.0.0  via [@tindevelopers/credential-crypto]  in 2 files
   @tindevelopers/domain-billing@1.0.2  via [@tindevelopers/domain-billing]  in 2 files
   @tindevelopers/domain-campaigns@1.1.1  via [@base/campaigns]  in 2 files
@@ -129,8 +129,8 @@ consumer pins (26 underlying packages):
   @tindevelopers/domain-pipeline@1.2.0  via [@base/pipeline]  in 3 files
   @tindevelopers/domain-support@6.0.1  via [@base/support]  in 4 files
   @tindevelopers/domain-translation@1.0.0  via [@base/translation]  in 4 files
-  @tindevelopers/knowledge@0.7.0  via [@base/knowledge]  in 5 files
-  @tindevelopers/knowledge-worker@0.1.0  via [@tindevelopers/knowledge-worker]  in 1 files
+  @tindevelopers/knowledge@0.8.0  via [@base/knowledge]  in 5 files
+  @tindevelopers/knowledge-worker@0.8.0  via [@tindevelopers/knowledge-worker]  in 1 files
   @tindevelopers/meetings@2.0.1  via [@base/meetings, @tindevelopers/meetings]  in 4 files
   @tindevelopers/platform@1.4.2  via [@tindevelopers/platform]  in 2 files
   @tindevelopers/schema-identity@1.1.1  via [@tindevelopers/schema-identity]  in 2 files

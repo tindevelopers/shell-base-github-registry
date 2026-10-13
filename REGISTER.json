@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T16:20:27.960Z",
+  "generatedAt": "2026-10-13T14:42:30.506Z",
   "rows": [
     {
       "package": "@tindevelopers/adapter-kit",
@@ -434,7 +434,7 @@
     {
       "package": "@tindevelopers/domain-identity",
       "repo": "tindevelopers/shared-identity-hub",
-      "branchVersion": "2.3.0",
+      "branchVersion": "2.4.0",
       "latest": "2.3.0",
       "next": "2.3.0",
       "dependents": [
@@ -471,7 +471,7 @@
           "range": "^2.0.0"
         }
       ],
-      "divergence": "OK"
+      "divergence": "OK (forward — branch 2.4.0 ahead of registry latest 2.3.0, unreleased)"
     },
     {
       "package": "@tindevelopers/domain-pipeline",
@@ -512,8 +512,8 @@
     {
       "package": "@tindevelopers/knowledge",
       "repo": "tindevelopers/shell-base-knowledge",
-      "branchVersion": "0.8.0",
-      "latest": "0.8.0",
+      "branchVersion": "0.8.1",
+      "latest": "0.8.1",
       "next": null,
       "dependents": [
         {
@@ -530,8 +530,8 @@
     {
       "package": "@tindevelopers/knowledge-worker",
       "repo": "tindevelopers/shell-base-knowledge",
-      "branchVersion": "0.8.0",
-      "latest": "0.8.0",
+      "branchVersion": "0.8.1",
+      "latest": "0.8.1",
       "next": null,
       "dependents": [],
       "divergence": "OK"
@@ -601,7 +601,7 @@
     {
       "package": "@tindevelopers/schema-identity",
       "repo": "tindevelopers/shared-identity-hub",
-      "branchVersion": "1.1.1",
+      "branchVersion": "1.2.0",
       "latest": "1.1.1",
       "next": "1.1.1",
       "dependents": [
@@ -615,7 +615,7 @@
         },
         {
           "by": "@tindevelopers/domain-identity",
-          "range": "^1.1.1"
+          "range": "^1.2.0"
         },
         {
           "by": "@tindevelopers/domain-support",
@@ -626,7 +626,7 @@
           "range": "^1.0.0"
         }
       ],
-      "divergence": "OK"
+      "divergence": "OK (forward — branch 1.2.0 ahead of registry latest 1.1.1, unreleased)"
     },
     {
       "package": "@tindevelopers/schema-support",
