@@ -16,6 +16,12 @@ on:
 permissions:
   contents: write
 
+# Shared with collect.yml: ensures the quick-collect workflow and this daily run's collector step
+# never overlap, which would risk the quick run persisting stale package data over fresher rows.
+concurrency:
+  group: collect-status
+  cancel-in-progress: false
+
 jobs:
   register:
     runs-on: ubuntu-latest
