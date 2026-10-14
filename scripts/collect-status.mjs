@@ -11,8 +11,10 @@
 //   NEON_COLLECTOR_URL        connection string for the collector_writer role (not set: skips with a warning)
 //   GITHUB_TOKEN / GH_TOKEN   read access to tindevelopers/tin-boss-api (for cells/*.json)
 //
-// Usage: node scripts/collect-status.mjs [--dry-run] [--register REGISTER.json]
+// Usage: node scripts/collect-status.mjs [--dry-run] [--quick] [--register REGISTER.json]
 //   --dry-run prints what would be written and touches neither the network database nor Neon.
+//   --quick   reuses the committed REGISTER.json for packages instead of regenerating it, so the run only does the
+//             live part (cell health). The run's note says how old the package data is. Used by collect.yml.
 
 import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -108,12 +110,15 @@ export async function loadCells(fetchFn, token) {
 // ---- orchestration -----------------------------------------------------------------
 
 /** One failing source never fails the run: it becomes "partial" with the error and whatever else was gathered. */
-export async function collect({ readRegisterFn, loadCellsFn, fetchFn, now = new Date() }) {
+export async function collect({ readRegisterFn, loadCellsFn, fetchFn, now = new Date(), quick = false }) {
   const errors = [];
+  const notes = []; // shown on the run, but they do not make it partial
   let packages = [];
   let cells = [];
   try {
-    packages = packageSnapshots(await readRegisterFn());
+    const register = await readRegisterFn();
+    packages = packageSnapshots(register);
+    if (quick) notes.push(`packages reused from REGISTER.json generated ${register.generatedAt ?? "at an unknown time"} (quick run)`);
   } catch (err) {
     errors.push(`packages: ${err.message}`);
   }
@@ -126,7 +131,7 @@ export async function collect({ readRegisterFn, loadCellsFn, fetchFn, now = new 
   }
   const gathered = packages.length + cells.length;
   const runStatus = gathered === 0 ? "failed" : errors.length ? "partial" : "ok";
-  return { packages, cells, errors, status: runStatus };
+  return { packages, cells, errors, notes, status: runStatus };
 }
 
 // ---- persistence -------------------------------------------------------------------
@@ -149,7 +154,8 @@ function insertMany(table, columns, rows, casts = {}) {
  */
 export async function persist(db, result) {
   const [{ id }] = await db.run("insert into collector_runs default values returning id", []);
-  const error = result.errors.length ? result.errors.join("\n").slice(0, 4000) : null;
+  const lines = [...result.errors, ...(result.notes ?? [])];
+  const error = lines.length ? lines.join("\n").slice(0, 4000) : null;
   const statements = [];
   if (result.packages.length) {
     statements.push(insertMany("package_snapshots", ["run_id", "package", "repo", "branch_version", "latest", "next", "divergence", "dependents"],
@@ -176,6 +182,7 @@ export async function persist(db, result) {
 async function main() {
   const args = process.argv.slice(2);
   const dryRun = args.includes("--dry-run");
+  const quick = args.includes("--quick");
   const registerPath = args.includes("--register") ? args[args.indexOf("--register") + 1] : join(ROOT, "REGISTER.json");
   const url = process.env.NEON_COLLECTOR_URL;
   if (!dryRun && !url) {
@@ -187,7 +194,7 @@ async function main() {
     console.error("collect-status: GITHUB_TOKEN is not set (needs read access to tindevelopers/tin-boss-api)");
     process.exit(1);
   }
-  const result = await collect({ readRegisterFn: () => readRegister(registerPath), loadCellsFn: () => loadCells(fetch, token), fetchFn: fetch });
+  const result = await collect({ readRegisterFn: () => readRegister(registerPath), loadCellsFn: () => loadCells(fetch, token), fetchFn: fetch, quick });
   if (dryRun) {
     console.log(JSON.stringify(result, null, 2));
   } else {

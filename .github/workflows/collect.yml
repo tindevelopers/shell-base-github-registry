@@ -1,0 +1,41 @@
+name: Collect status (quick)
+
+# On-demand observed-state run for the TIN ops console's "Collect now" button.
+# register.yml regenerates REGISTER.json first, which is the slow part (cross-repo discovery of every package).
+# This workflow skips that: it reuses the committed REGISTER.json for packages and checks cell health live,
+# then records the run as collector_writer. The run's note says how old the package data is. The daily
+# register.yml run is unchanged and still refreshes everything.
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+# One at a time, and never alongside the daily run's own collector step.
+concurrency:
+  group: collect-status
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.6.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      # Only @neondatabase/serverless is needed; nothing here reads the private package registry.
+      - run: pnpm install --no-frozen-lockfile
+
+      # Unlike the daily run, a failure here fails the job: someone clicked the button and is waiting for a result.
+      - name: Collect status for the ops console
+        run: node scripts/collect-status.mjs --quick
+        env:
+          GITHUB_TOKEN: ${{ secrets.HUB_REGISTRY_GH_TOKEN || secrets.GITHUB_TOKEN }}
+          NEON_COLLECTOR_URL: ${{ secrets.NEON_COLLECTOR_URL }}

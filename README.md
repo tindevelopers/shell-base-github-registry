@@ -192,4 +192,6 @@ It never reads or writes the console's declared registry (projects, versions, ow
 
 A failing source does not fail the run: it is recorded as `partial` with the error, and the other source's rows are still written. Runs older than 90 days are pruned. The workflow step is `continue-on-error`, so a collector problem never hides a register result.
 
+**Quick run (on demand).** `.github/workflows/collect.yml` (`workflow_dispatch` only, started by the console's *Collect now* button) runs `node scripts/collect-status.mjs --quick`. It skips regenerating the register, the slow part, and reuses the committed `REGISTER.json` for packages, so it finishes in about a minute. Cell health is still checked live. The run's note records how old the package data is (for example `packages reused from REGISTER.json generated 2026-10-13T14:42:30Z (quick run)`); the daily `register.yml` run refreshes everything. Unlike the daily step, a failure here fails the job.
+
 Setup (owner): create the `NEON_COLLECTOR_URL` repository secret from the `collector_writer` role (login must be enabled first), and make sure `HUB_REGISTRY_GH_TOKEN` can read `tindevelopers/tin-boss-api`. Until the secret exists the step prints a warning and skips. Try it without writing anything: `GITHUB_TOKEN=... node scripts/collect-status.mjs --dry-run`.
