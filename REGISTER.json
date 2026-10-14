@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T06:31:39.690Z",
+  "generatedAt": "2026-10-14T12:34:37.084Z",
   "rows": [
     {
       "package": "@tindevelopers/adapter-kit",
@@ -512,29 +512,29 @@
     {
       "package": "@tindevelopers/knowledge",
       "repo": "tindevelopers/shell-base-knowledge",
-      "branchVersion": "0.8.1",
+      "branchVersion": "0.9.0",
       "latest": "0.8.1",
       "next": null,
       "dependents": [
         {
           "by": "@tindevelopers/knowledge-worker",
-          "range": "^0.8.0"
+          "range": "^0.9.0"
         },
         {
           "by": "@tindevelopers/knowledge-worker",
           "range": "workspace:*"
         }
       ],
-      "divergence": "OK"
+      "divergence": "OK (forward — branch 0.9.0 ahead of registry latest 0.8.1, unreleased)"
     },
     {
       "package": "@tindevelopers/knowledge-worker",
       "repo": "tindevelopers/shell-base-knowledge",
-      "branchVersion": "0.8.1",
+      "branchVersion": "0.9.0",
       "latest": "0.8.1",
       "next": null,
       "dependents": [],
-      "divergence": "OK"
+      "divergence": "OK (forward — branch 0.9.0 ahead of registry latest 0.8.1, unreleased)"
     },
     {
       "package": "@tindevelopers/meetings",

@@ -1,6 +1,6 @@
 # REGISTER.md
 
-Generated 2026-10-14T06:31:39.690Z by `scripts/generate-register.mjs` (T12, Shared Hubs Baseline, Milestone 3 — Registry truth).
+Generated 2026-10-14T12:34:37.083Z by `scripts/generate-register.mjs` (T12, Shared Hubs Baseline, Milestone 3 — Registry truth).
 
 Compares every discovered `@tindevelopers/*` package's default-branch version against the real `latest`/`next` dist-tags on the private registry (`https://npm.pkg.github.com`). A **backward** divergence — registry `latest` ahead of the branch's version — is the dangerous pattern found the hard way in T9 (`adapter-kit`) and T11 (`knowledge`): it means the branch's source does not reflect a version that was actually published, usually from two dev lines both publishing after a history-squashing event. A **forward** divergence (branch ahead of `latest`) is ordinary unreleased work and is never flagged as a problem.
 
@@ -35,8 +35,8 @@ Compares every discovered `@tindevelopers/*` package's default-branch version ag
 | `@tindevelopers/domain-platform-billing` | tindevelopers/shell-base-finance | 1.0.0-next.0 | — | — | — | OK (unpublished — no registry versions yet) |
 | `@tindevelopers/domain-support` | tindevelopers/shared-client-care-hub | 6.0.1 | 6.0.1 | 6.0.1 | — | OK |
 | `@tindevelopers/domain-translation` | tindevelopers/shell-base-cxp | 1.0.0 | 1.0.0 | — | — | OK |
-| `@tindevelopers/knowledge` | tindevelopers/shell-base-knowledge | 0.8.1 | 0.8.1 | — | @tindevelopers/knowledge-worker@`^0.8.0`<br>@tindevelopers/knowledge-worker@`workspace:*` | OK |
-| `@tindevelopers/knowledge-worker` | tindevelopers/shell-base-knowledge | 0.8.1 | 0.8.1 | — | — | OK |
+| `@tindevelopers/knowledge` | tindevelopers/shell-base-knowledge | 0.9.0 | 0.8.1 | — | @tindevelopers/knowledge-worker@`^0.9.0`<br>@tindevelopers/knowledge-worker@`workspace:*` | OK (forward — branch 0.9.0 ahead of registry latest 0.8.1, unreleased) |
+| `@tindevelopers/knowledge-worker` | tindevelopers/shell-base-knowledge | 0.9.0 | 0.8.1 | — | — | OK (forward — branch 0.9.0 ahead of registry latest 0.8.1, unreleased) |
 | `@tindevelopers/meetings` | tindevelopers/shell-base-meetings | 2.0.1 | 2.0.1 | 2.0.0 | — | OK [note: "next" (2.0.0) is BEHIND "latest" (2.0.1)] |
 | `@tindevelopers/platform` | tindevelopers/shell-base-admin | 1.4.2 | 1.4.2 | 1.4.2 | — | OK |
 | `@tindevelopers/schema-crm` | tindevelopers/shared-client-care-hub | 1.2.0 | 1.2.0 | 1.2.0 | @tindevelopers/domain-campaigns@`workspace:^`<br>@tindevelopers/domain-contacts@`workspace:^`<br>@tindevelopers/domain-pipeline@`workspace:^`<br>@tindevelopers/ui-crm@`workspace:^` | OK |
@@ -74,8 +74,8 @@ catalog entries (27):
   @tindevelopers/domain-pipeline@1.2.0
   @tindevelopers/domain-support@6.0.1
   @tindevelopers/domain-translation@1.0.0
-  @tindevelopers/knowledge@0.8.0
-  @tindevelopers/knowledge-worker@0.8.0
+  @tindevelopers/knowledge@0.8.1
+  @tindevelopers/knowledge-worker@0.8.1
   @tindevelopers/meetings@2.0.1
   @tindevelopers/platform@1.4.2
   @tindevelopers/schema-crm@1.2.0
@@ -101,8 +101,8 @@ pnpm.overrides entries (26):
   @tindevelopers/domain-pipeline@1.2.0
   @tindevelopers/domain-support@6.0.1
   @tindevelopers/domain-translation@1.0.0
-  @tindevelopers/knowledge@0.8.0
-  @tindevelopers/knowledge-worker@0.8.0
+  @tindevelopers/knowledge@0.8.1
+  @tindevelopers/knowledge-worker@0.8.1
   @tindevelopers/meetings@2.0.1
   @tindevelopers/platform@1.4.2
   @tindevelopers/schema-crm@1.2.0
@@ -129,8 +129,8 @@ consumer pins (26 underlying packages):
   @tindevelopers/domain-pipeline@1.2.0  via [@base/pipeline]  in 3 files
   @tindevelopers/domain-support@6.0.1  via [@base/support]  in 4 files
   @tindevelopers/domain-translation@1.0.0  via [@base/translation]  in 4 files
-  @tindevelopers/knowledge@0.8.0  via [@base/knowledge]  in 5 files
-  @tindevelopers/knowledge-worker@0.8.0  via [@tindevelopers/knowledge-worker]  in 1 files
+  @tindevelopers/knowledge@0.8.1  via [@base/knowledge]  in 5 files
+  @tindevelopers/knowledge-worker@0.8.1  via [@tindevelopers/knowledge-worker]  in 1 files
   @tindevelopers/meetings@2.0.1  via [@base/meetings, @tindevelopers/meetings]  in 4 files
   @tindevelopers/platform@1.4.2  via [@tindevelopers/platform]  in 2 files
   @tindevelopers/schema-identity@1.1.1  via [@tindevelopers/schema-identity]  in 2 files
