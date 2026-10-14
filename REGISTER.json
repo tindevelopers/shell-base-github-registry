@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T14:42:30.506Z",
+  "generatedAt": "2026-10-14T06:31:39.690Z",
   "rows": [
     {
       "package": "@tindevelopers/adapter-kit",
@@ -189,7 +189,7 @@
     {
       "package": "@tindevelopers/api-credentials",
       "repo": "tindevelopers/shared-api-hub",
-      "branchVersion": "0.3.0",
+      "branchVersion": "0.4.0",
       "latest": "0.3.0",
       "next": "0.3.0",
       "dependents": [
@@ -198,7 +198,7 @@
           "range": ">=0.2.0 <0.4.0"
         }
       ],
-      "divergence": "OK"
+      "divergence": "OK (forward — branch 0.4.0 ahead of registry latest 0.3.0, unreleased)"
     },
     {
       "package": "@tindevelopers/api-mcp",

@@ -1,6 +1,6 @@
 # REGISTER.md
 
-Generated 2026-10-13T14:42:30.505Z by `scripts/generate-register.mjs` (T12, Shared Hubs Baseline, Milestone 3 — Registry truth).
+Generated 2026-10-14T06:31:39.690Z by `scripts/generate-register.mjs` (T12, Shared Hubs Baseline, Milestone 3 — Registry truth).
 
 Compares every discovered `@tindevelopers/*` package's default-branch version against the real `latest`/`next` dist-tags on the private registry (`https://npm.pkg.github.com`). A **backward** divergence — registry `latest` ahead of the branch's version — is the dangerous pattern found the hard way in T9 (`adapter-kit`) and T11 (`knowledge`): it means the branch's source does not reflect a version that was actually published, usually from two dev lines both publishing after a history-squashing event. A **forward** divergence (branch ahead of `latest`) is ordinary unreleased work and is never flagged as a problem.
 
@@ -14,7 +14,7 @@ Compares every discovered `@tindevelopers/*` package's default-branch version ag
 | `@tindevelopers/adapter-woocommerce` | tindevelopers/shared-integration-hub | 1.0.0-next.0 | — | — | — | OK (unpublished — no registry versions yet) |
 | `@tindevelopers/adapter-xero` | tindevelopers/shared-integration-hub | 1.0.0-next.0 | — | — | — | OK (unpublished — no registry versions yet) |
 | `@tindevelopers/agents` | tindevelopers/shell-base-agents | 2.0.1 | 2.0.1 | 2.0.0 | — | OK [note: "next" (2.0.0) is BEHIND "latest" (2.0.1)] |
-| `@tindevelopers/api-credentials` | tindevelopers/shared-api-hub | 0.3.0 | 0.3.0 | 0.3.0 | @tindevelopers/api-mcp@`>=0.2.0 <0.4.0` | OK |
+| `@tindevelopers/api-credentials` | tindevelopers/shared-api-hub | 0.4.0 | 0.3.0 | 0.3.0 | @tindevelopers/api-mcp@`>=0.2.0 <0.4.0` | OK (forward — branch 0.4.0 ahead of registry latest 0.3.0, unreleased) |
 | `@tindevelopers/api-mcp` | tindevelopers/shared-api-hub | 1.0.0 | 0.2.1 | 1.0.0 | — | OK (forward — 1.0.0 published to "next", awaiting G2 promotion to "latest") |
 | `@tindevelopers/boss` | tindevelopers/shell-base-boss | 0.1.2 | 0.1.2 | 0.1.2 | — | OK |
 | `@tindevelopers/brands` | tindevelopers/chassis | 0.2.1 | 0.2.1 | — | @tindevelopers/ui-consumer@`workspace:^` | OK |
