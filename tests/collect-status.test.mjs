@@ -105,6 +105,19 @@ test("collect: both sources failing is failed", async () => {
   assert.equal(r.status, "failed");
 });
 
+test("collect --quick: reuses the register, notes how old it is, and stays ok", async () => {
+  const r = await collect({ readRegisterFn: () => ({ ...register, generatedAt: "2026-10-13T14:42:30.506Z" }), loadCellsFn: async () => ({ cells: [cell], errors: [] }), fetchFn: ok200, now: NOW, quick: true });
+  assert.equal(r.status, "ok");
+  assert.deepEqual(r.errors, []);
+  assert.match(r.notes[0], /reused from REGISTER\.json generated 2026-10-13T14:42:30\.506Z \(quick run\)/);
+  assert.equal(r.packages.length, 1);
+});
+
+test("collect: a normal run has no notes", async () => {
+  const r = await collect({ readRegisterFn: () => register, loadCellsFn: async () => ({ cells: [cell], errors: [] }), fetchFn: ok200, now: NOW });
+  assert.deepEqual(r.notes, []);
+});
+
 // ---- persist ----------------------------------------------------------------------
 
 function fakeDb({ failBatch = false } = {}) {
@@ -148,6 +161,13 @@ test("persist: a failed write marks the run failed and rethrows", async () => {
   const last = db.log.runs.at(-1);
   assert.match(last.text, /status = 'failed'/);
   assert.match(last.params[1], /write failed: boom/);
+});
+
+test("persist: notes are stored on the run row without changing its status", async () => {
+  const db = fakeDb();
+  await persist(db, { packages: [], cells: [], errors: [], notes: ["packages reused (quick run)"], status: "ok" });
+  const update = db.log.batches[0].find((s) => s.text.startsWith("update collector_runs"));
+  assert.deepEqual(update.params, [42, "ok", "packages reused (quick run)"]);
 });
 
 test("persist: errors are stored on the run row", async () => {
