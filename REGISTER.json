@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-10-14T12:34:37.084Z",
+  "generatedAt": "2026-10-15T12:19:30.765Z",
   "rows": [
     {
       "package": "@tindevelopers/adapter-kit",
       "repo": "tindevelopers/shared-integration-hub",
-      "branchVersion": "1.13.0",
+      "branchVersion": "1.13.1",
       "latest": "1.13.0",
-      "next": "1.13.0",
+      "next": "1.13.1",
       "dependents": [
         {
           "by": "@tindevelopers/adapter-pennylane",
@@ -121,7 +121,7 @@
           "range": "^1.4.0"
         }
       ],
-      "divergence": "OK"
+      "divergence": "OK (forward — 1.13.1 published to \"next\", awaiting G2 promotion to \"latest\")"
     },
     {
       "package": "@tindevelopers/adapter-pennylane",
@@ -191,14 +191,14 @@
       "repo": "tindevelopers/shared-api-hub",
       "branchVersion": "0.4.0",
       "latest": "0.3.0",
-      "next": "0.3.0",
+      "next": "0.4.0",
       "dependents": [
         {
           "by": "@tindevelopers/api-mcp",
           "range": ">=0.2.0 <0.4.0"
         }
       ],
-      "divergence": "OK (forward — branch 0.4.0 ahead of registry latest 0.3.0, unreleased)"
+      "divergence": "OK (forward — 0.4.0 published to \"next\", awaiting G2 promotion to \"latest\")"
     },
     {
       "package": "@tindevelopers/api-mcp",
@@ -513,7 +513,7 @@
       "package": "@tindevelopers/knowledge",
       "repo": "tindevelopers/shell-base-knowledge",
       "branchVersion": "0.9.0",
-      "latest": "0.8.1",
+      "latest": "0.9.0",
       "next": null,
       "dependents": [
         {
@@ -525,16 +525,16 @@
           "range": "workspace:*"
         }
       ],
-      "divergence": "OK (forward — branch 0.9.0 ahead of registry latest 0.8.1, unreleased)"
+      "divergence": "OK"
     },
     {
       "package": "@tindevelopers/knowledge-worker",
       "repo": "tindevelopers/shell-base-knowledge",
       "branchVersion": "0.9.0",
-      "latest": "0.8.1",
+      "latest": "0.9.0",
       "next": null,
       "dependents": [],
-      "divergence": "OK (forward — branch 0.9.0 ahead of registry latest 0.8.1, unreleased)"
+      "divergence": "OK"
     },
     {
       "package": "@tindevelopers/meetings",
