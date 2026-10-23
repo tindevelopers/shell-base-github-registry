@@ -1,12 +1,12 @@
 # REGISTER.md
 
-Generated 2026-10-22T12:38:57.354Z by `scripts/generate-register.mjs` (T12, Shared Hubs Baseline, Milestone 3 — Registry truth).
+Generated 2026-10-23T12:18:26.351Z by `scripts/generate-register.mjs` (T12, Shared Hubs Baseline, Milestone 3 — Registry truth).
 
 Compares every discovered `@tindevelopers/*` package's default-branch version against the real `latest`/`next` dist-tags on the private registry (`https://npm.pkg.github.com`). A **backward** divergence — registry `latest` ahead of the branch's version — is the dangerous pattern found the hard way in T9 (`adapter-kit`) and T11 (`knowledge`): it means the branch's source does not reflect a version that was actually published, usually from two dev lines both publishing after a history-squashing event. A **forward** divergence (branch ahead of `latest`) is ordinary unreleased work and is never flagged as a problem.
 
 | Package | Repo | Branch version | Registry `latest` | Registry `next` | Dependents (range) | Divergence |
 |---|---|---|---|---|---|---|
-| `@tindevelopers/adapter-kit` | tindevelopers/shared-integration-hub | 1.13.2 | 1.13.0 | 1.13.2 | @tindevelopers/adapter-pennylane@`^1.11.0`<br>@tindevelopers/adapter-pennylane@`^1.12.1`<br>@tindevelopers/adapter-quickbooks@`^1.11.0`<br>@tindevelopers/adapter-quickbooks@`^1.12.1`<br>@tindevelopers/adapter-shopify@`^1.11.0`<br>@tindevelopers/adapter-shopify@`^1.12.1`<br>@tindevelopers/adapter-stripe@`^1.11.0`<br>@tindevelopers/adapter-stripe@`^1.12.1`<br>@tindevelopers/adapter-woocommerce@`^1.11.0`<br>@tindevelopers/adapter-woocommerce@`^1.12.1`<br>@tindevelopers/adapter-xero@`^1.11.0`<br>@tindevelopers/adapter-xero@`^1.12.1`<br>@tindevelopers/agents@`^1.4.0`<br>@tindevelopers/boss@`^1.7.0`<br>@tindevelopers/comms@`^1.4.4`<br>@tindevelopers/domain-campaigns@`^1.9.1`<br>@tindevelopers/domain-contacts@`^1.9.1`<br>@tindevelopers/domain-finance@`1.12.1`<br>@tindevelopers/domain-finance@`^1.12.1`<br>@tindevelopers/domain-platform-billing@`1.12.1`<br>@tindevelopers/domain-platform-billing@`^1.12.1`<br>@tindevelopers/domain-support@`^1.0.0`<br>@tindevelopers/domain-support@`^1.9.1`<br>@tindevelopers/knowledge-worker@`1.12.2`<br>@tindevelopers/knowledge-worker@`^1.12.2`<br>@tindevelopers/knowledge@`1.13.0`<br>@tindevelopers/knowledge@`^1.12.2`<br>@tindevelopers/meetings@`^1.4.0` | OK (forward — 1.13.2 published to "next", awaiting G2 promotion to "latest") |
+| `@tindevelopers/adapter-kit` | tindevelopers/shared-integration-hub | 1.13.2 | 1.13.2 | 1.13.2 | @tindevelopers/adapter-pennylane@`^1.11.0`<br>@tindevelopers/adapter-pennylane@`^1.12.1`<br>@tindevelopers/adapter-quickbooks@`^1.11.0`<br>@tindevelopers/adapter-quickbooks@`^1.12.1`<br>@tindevelopers/adapter-shopify@`^1.11.0`<br>@tindevelopers/adapter-shopify@`^1.12.1`<br>@tindevelopers/adapter-stripe@`^1.11.0`<br>@tindevelopers/adapter-stripe@`^1.12.1`<br>@tindevelopers/adapter-woocommerce@`^1.11.0`<br>@tindevelopers/adapter-woocommerce@`^1.12.1`<br>@tindevelopers/adapter-xero@`^1.11.0`<br>@tindevelopers/adapter-xero@`^1.12.1`<br>@tindevelopers/agents@`^1.4.0`<br>@tindevelopers/boss@`^1.7.0`<br>@tindevelopers/comms@`^1.4.4`<br>@tindevelopers/domain-campaigns@`^1.9.1`<br>@tindevelopers/domain-contacts@`^1.9.1`<br>@tindevelopers/domain-finance@`1.12.1`<br>@tindevelopers/domain-finance@`^1.12.1`<br>@tindevelopers/domain-platform-billing@`1.12.1`<br>@tindevelopers/domain-platform-billing@`^1.12.1`<br>@tindevelopers/domain-support@`^1.0.0`<br>@tindevelopers/domain-support@`^1.9.1`<br>@tindevelopers/knowledge-worker@`1.12.2`<br>@tindevelopers/knowledge-worker@`^1.12.2`<br>@tindevelopers/knowledge@`1.13.0`<br>@tindevelopers/knowledge@`^1.12.2`<br>@tindevelopers/meetings@`^1.4.0` | OK |
 | `@tindevelopers/adapter-pennylane` | tindevelopers/shared-integration-hub | 1.0.0-next.1 | — | — | — | OK (unpublished — no registry versions yet) |
 | `@tindevelopers/adapter-quickbooks` | tindevelopers/shared-integration-hub | 1.0.0-next.0 | — | — | — | OK (unpublished — no registry versions yet) |
 | `@tindevelopers/adapter-shopify` | tindevelopers/shared-integration-hub | 1.0.0-next.0 | — | — | — | OK (unpublished — no registry versions yet) |
@@ -59,7 +59,7 @@ catalog entries (27):
   @tindevelopers/agents@2.0.1
   @tindevelopers/api-credentials@0.3.0
   @tindevelopers/api-mcp@0.1.0
-  @tindevelopers/boss@0.1.1
+  @tindevelopers/boss@0.1.2
   @tindevelopers/comms@3.1.1
   @tindevelopers/core-kernel@3.0.0
   @tindevelopers/credential-crypto@1.0.0
@@ -87,7 +87,7 @@ pnpm.overrides entries (26):
   @tindevelopers/agents@2.0.1
   @tindevelopers/api-credentials@0.3.0
   @tindevelopers/api-mcp@0.1.0
-  @tindevelopers/boss@0.1.1
+  @tindevelopers/boss@0.1.2
   @tindevelopers/comms@3.1.1
   @tindevelopers/credential-crypto@1.0.0
   @tindevelopers/domain-billing@1.0.2
@@ -114,7 +114,7 @@ consumer pins (26 underlying packages):
   @tindevelopers/agents@2.0.1  via [@base/agents, @tindevelopers/agents]  in 4 files
   @tindevelopers/api-credentials@0.3.0  via [@base/api-credentials, @tindevelopers/api-credentials]  in 1 files
   @tindevelopers/api-mcp@0.1.0  via [@base/api-mcp]  in 1 files
-  @tindevelopers/boss@0.1.1  via [@base/boss]  in 1 files
+  @tindevelopers/boss@0.1.2  via [@base/boss]  in 1 files
   @tindevelopers/comms@3.1.1  via [@tindevelopers/comms]  in 4 files
   @tindevelopers/core-kernel@3.0.0  via [@base/core, @tindevelopers/core-kernel]  in 4 files
   @tindevelopers/credential-crypto@1.0.0  via [@tindevelopers/credential-crypto]  in 2 files
